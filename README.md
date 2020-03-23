@@ -102,7 +102,7 @@ module.exports = {
   abbreviation: "BYUI-2.2", //简写
   devPort: "80", //开发环境端口号
   version: "V2.2", //版本号
-  copyright: "chu1204505056", //必须保留版权,否则项目无法启动
+  copyright: "chu1204505056", //必须保留版权,否则项目无法启动,吓唬你的哈哈哈
   loadingText: "正在加载中...", //加载时显示文字
   tokenName: "accessToken", //token名称
   tokenTableName: "BYUI-VUE-TABLE", //token表名
