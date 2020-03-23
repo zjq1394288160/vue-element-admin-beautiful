@@ -118,7 +118,7 @@ export default {
   },
   mounted() {
     this.timeInterval = setInterval(() => {
-      this.handleRevealText();
+      /* this.handleRevealText();*/
       this.handleProfile();
       this.handleSolidText();
       this.handleFaultText();

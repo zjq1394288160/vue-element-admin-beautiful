@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div style="margin-top: 20px; margin-left: 20px;">
     <el-table
       :key="table_key"
       :data="list"

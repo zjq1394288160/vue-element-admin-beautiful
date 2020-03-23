@@ -91,11 +91,6 @@ export default {
   },
 };
 </script>
-<style>
-.el-popover {
-  min-width: 60px !important;
-}
-</style>
 <style scoped>
 .table-header-card {
   margin: 10px 0;

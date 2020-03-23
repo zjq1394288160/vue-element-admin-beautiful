@@ -1,10 +1,10 @@
 <template>
   <div class="table-query">
-    <div style="margin-top: -13px;">
+    <div style="margin-top: 5px;">
       温馨提示：表格可拖动可开启自定义
       <span style="color: red;">json最后一个字段不能加逗号</span>
     </div>
-    <div style="margin-top: -19px;">
+    <div>
       <el-button type="primary" @click="openCodeDialog">查看代码 </el-button>
       <el-button type="primary" @click="handleClipboard(srcTableCode, $event)"
         >复制代码
@@ -71,7 +71,7 @@ export default {
 .table-query {
   display: flex;
   justify-content: space-between;
-  height: 15px;
+  height: 45px;
 
   ::v-deep {
     .CodeMirror {
