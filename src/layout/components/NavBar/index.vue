@@ -118,6 +118,7 @@ export default {
         color: $base-color-gray;
         fill: $base-color-gray;
         margin-right: 15px;
+        cursor: pointer;
       }
 
       .el-badge {
