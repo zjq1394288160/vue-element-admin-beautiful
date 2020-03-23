@@ -80,18 +80,6 @@ export const asyncRoutes = [
         meta: { title: "代码生成机" },
       },
       {
-        path: "news",
-        name: "News",
-        component: () => import("@/views/byui/news/index"),
-        meta: { title: "新闻" },
-      },
-      {
-        path: "markdown",
-        name: "Markdown",
-        component: () => import("@/views/byui/markdown/index"),
-        meta: { title: "markdown阅读器" },
-      },
-      {
         path: "smallComponents",
         name: "SmallComponents",
         component: () => import("@/views/byui/smallComponents/index"),
