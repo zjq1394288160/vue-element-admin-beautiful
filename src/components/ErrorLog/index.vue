@@ -2,10 +2,9 @@
   <div v-if="errorLogs.length > 0">
     <el-badge
       :value="errorLogs.length"
-      style="line-height: 25px; margin-top: -5px; margin-right: 10px;"
       @click.native="dialogTableVisible = true"
     >
-      <el-button style="padding: 10px 11px;" type="danger">
+      <el-button type="danger">
         <byui-icon :icon="['fas', 'bug']" />
         {{ abbreviation }}异常捕获
       </el-button>
@@ -27,7 +26,7 @@
         </el-table-column>
         <el-table-column label="错误信息">
           <template slot-scope="{ row }">
-            <el-tag type="danger">{{ decodeUnicode(row.err.message) }} </el-tag>
+            <el-tag type="danger">{{ decodeUnicode(row.err.message) }}</el-tag>
           </template>
         </el-table-column>
         <el-table-column label="错误详情" width="120">

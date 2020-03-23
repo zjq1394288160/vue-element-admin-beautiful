@@ -1,35 +1,33 @@
 <template>
   <div class="nav-bar-container">
     <byui-main>
-      <breadcrumb class="breadcrumb-container" />
-      <div class="right-menu">
-        <error-log class="errLog-container right-menu-item hover-effect" />
-
-        <div class="avatar-container" trigger="click">
-          <div class="avatar-content">
+      <el-row :gutter="15">
+        <el-col :span="12">
+          <breadcrumb />
+        </el-col>
+        <el-col :span="12">
+          <div class="right-panel">
+            <error-log />
+            <byui-screenfull></byui-screenfull>
             <byui-icon
               @click="refreshSelectedTag"
               :pulse="pulse"
               class="right-icon"
               :icon="['fas', 'redo']"
             />
-            <byui-screenfull></byui-screenfull>
             <el-avatar icon="el-icon-user-solid"></el-avatar>
             <el-tooltip effect="light" placement="bottom">
-              <div slot="content">
-                <p style="height: 24px; line-height: 24px;">
-                  上次登录时间:{{ lastLoginTime }}
-                </p>
-              </div>
-              <span class="nav-name">{{ name }}</span>
+              <div slot="content">上次登录时间:{{ lastLoginTime }}</div>
+              <span class="user-name">{{ name }}</span>
             </el-tooltip>
-
-            <span @click="logout"
-              ><byui-icon class="right-icon" :icon="['fas', 'sign-out-alt']"
-            /></span>
+            <byui-icon
+              @click="logout"
+              class="right-icon"
+              :icon="['fas', 'sign-out-alt']"
+            />
           </div>
-        </div>
-      </div>
+        </el-col>
+      </el-row>
     </byui-main>
   </div>
 </template>
@@ -104,79 +102,26 @@ export default {
   background: $base-color-white;
   box-shadow: $base-box-shadow;
 
-  .hamburger-container {
-    line-height: 46px;
-    height: 100%;
-    float: left;
-    cursor: pointer;
-    transition: background 0.3s;
-    -webkit-tap-highlight-color: transparent;
+  .right-panel {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
 
-    &:hover {
-      background: rgba(0, 0, 0, 0.025);
-    }
-  }
-
-  .breadcrumb-container {
-    float: left;
-  }
-
-  .right-menu {
-    float: right;
-    height: 100%;
-    line-height: 50px;
-
-    &:focus {
-      outline: none;
+    .user-name {
+      margin-right: 15px;
+      margin-left: 5px;
     }
 
-    .right-menu-item {
-      display: inline-block;
-      padding: 0 8px;
-      height: 100%;
-      font-size: $base-font-size-default;
-      color: $base-menu-background;
-      vertical-align: text-bottom;
-
-      &.hover-effect {
-        cursor: pointer;
-        transition: background 0.3s;
+    ::v-deep {
+      > svg {
+        color: $base-color-gray;
+        fill: $base-color-gray;
+        margin-right: 15px;
       }
-    }
 
-    .avatar-container {
-      float: right;
-      margin-right: 20px;
-
-      .avatar-content {
-        margin-top: 5px;
-        display: flex;
-        line-height: 40px;
-
-        .right-icon {
-          margin-top: 12px;
-          margin-right: 15px;
-          color: #97a8be;
-          cursor: pointer;
-        }
-
-        .user-avatar {
-          cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-        }
-
-        .nav-name {
-          margin: 0 10px;
-          cursor: pointer;
-        }
-
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          font-size: $base-font-size-default;
-          line-height: 40px;
-        }
+      .el-badge {
+        margin-right: 15px;
       }
     }
   }

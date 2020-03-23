@@ -1,5 +1,5 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="/">
+  <el-breadcrumb class="breadcrumb-container" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
         <span
@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-breadcrumb.el-breadcrumb {
+.breadcrumb-container {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
