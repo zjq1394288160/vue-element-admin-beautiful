@@ -1,0 +1,152 @@
+@charset "utf-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  background: #f2f2f2;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+img {
+  object-fit: cover;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: block;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: #fff;
+}
+
+.byui-overflow {
+  overflow: hidden;
+}
+
+.byui-clear {
+  clear: both;
+  height: 1px;
+  width: 100%;
+}
+
+.byui-clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.byui-fl {
+  float: left;
+}
+
+.byui-fr {
+  float: right;
+}
+
+.byui-alignLeft {
+  text-align: left;
+}
+
+.byui-alignCenter {
+  text-align: center;
+}
+
+.byui-alignRight {
+  text-align: right;
+}
+
+.byui-inline {
+  display: inline-block;
+}
+
+.byui-cursor {
+  cursor: pointer;
+}
+
+.byui-blod {
+  font-weight: bold;
+}
+
+//上下左右居中
+.byui-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*超出省略号--需要设置宽度*/
+.byui-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(144, 147, 153, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(144, 147, 153, 0.5);
+}
+
+.byui-custom-tree-node {
+  padding-left: 0 !important;
+}
