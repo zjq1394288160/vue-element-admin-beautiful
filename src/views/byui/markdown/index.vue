@@ -1,5 +1,8 @@
 <template>
   <div class="markdown-container markdown-body">
+    <el-divider content-position="left"
+      >演示环境可能无法访问,需部署到本地
+    </el-divider>
     <el-select @change="handleChange" v-model="value" placeholder="请选择">
       <el-option
         v-for="(item, index) in options"
