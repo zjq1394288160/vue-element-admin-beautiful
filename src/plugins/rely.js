@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === "production") {
   const authorizationDate = new window["\x44\x61\x74\x65"](
     "\x32\x30\x32\x30\x2d\x33\x2d\x32\x33"
   );
-  let authorizationPeriod = 30 * 12 * 5;
+  let authorizationPeriod = 30 * 12 * 1;
   if (authorizationPeriod < 0) {
     authorizationPeriod = 0;
   }
