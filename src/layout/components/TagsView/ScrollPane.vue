@@ -78,35 +78,16 @@ export default {
 .scroll-container {
   white-space: nowrap;
   position: relative;
-  width: 100%;
+  overflow: hidden;
+  width: calc(100vw - 300px);
 
   ::v-deep {
     .el-scrollbar__bar {
-      bottom: 0;
+      bottom: 0px;
     }
 
     .el-scrollbar__wrap {
       height: 49px;
-      margin-left: -3px;
-    }
-  }
-}
-
-.layout-container-vertical {
-  .scroll-container {
-    white-space: nowrap;
-    position: relative;
-    width: 100%;
-
-    ::v-deep {
-      .el-scrollbar__bar {
-        bottom: 0;
-      }
-
-      .el-scrollbar__wrap {
-        height: 49px;
-        margin-left: 12px;
-      }
     }
   }
 }

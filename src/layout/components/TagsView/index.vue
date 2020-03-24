@@ -1,6 +1,6 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
-    <scroll-pane ref="scrollPane" class="tags-view-wrapper" @contextmenu.stop>
+    <scroll-pane ref="scrollPane" @contextmenu.stop>
       <router-link
         v-for="(item, index) in visitedViews"
         :key="index"
@@ -236,45 +236,38 @@ export default {
   border: 0;
   box-shadow: none;
 
-  .tags-view-wrapper {
-    padding-top: 5px;
+  padding-top: 5px;
 
-    .tags-view-item {
-      display: inline-block;
-      position: relative;
-      cursor: pointer;
-      height: $base-input-height;
-      line-height: $base-input-height;
-      border: 1px solid $base-border-color;
-      background: $base-color-white;
-      padding: 0 15px 0 15px;
-      font-size: $base-font-size-small;
-      border-radius: $base-border-radius;
-      margin-left: 5px;
+  .tags-view-item {
+    position: relative;
+    cursor: pointer;
+    height: $base-input-height;
+    line-height: $base-input-height;
+    border: 1px solid $base-border-color;
+    background: $base-color-white;
+    font-size: $base-font-size-small;
+    border-radius: $base-border-radius;
+    margin-left: 5px;
+    display: inline-flex;
+    justify-items: center;
+    align-items: center;
+    padding: 0 15px 0 15px;
 
-      &:first-of-type {
-        margin-left: 3px;
-      }
+    &.active {
+      background-color: $base-color-default;
+      color: $base-color-white;
+      border-color: $base-color-default;
+    }
 
-      &:last-of-type {
-        margin-right: 3px;
-      }
+    .el-icon-close {
+      margin: 0 0 0 5px;
 
-      &.active {
-        background-color: $base-color-default;
+      &:hover {
+        background-color: $base-color-red;
         color: $base-color-white;
-        border-color: $base-color-default;
-
-        &::before {
-          content: "";
-          background: $base-color-white;
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          position: relative;
-          margin-right: 2px;
-        }
+        display: inline-flex;
+        justify-items: center;
+        align-items: center;
       }
     }
   }
