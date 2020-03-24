@@ -79,15 +79,11 @@ export default {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  width: calc(100vw - 300px);
+  width: 100vw;
 
   ::v-deep {
-    .el-scrollbar__bar {
-      bottom: 0px;
-    }
-
     .el-scrollbar__wrap {
-      height: 49px;
+      height: 50px;
     }
   }
 }
