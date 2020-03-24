@@ -7,11 +7,3 @@ export function getPrettierList(data) {
     data,
   });
 }
-
-export function getVueApiList(data) {
-  return request({
-    url: "/markdown/getVueApiList",
-    method: "post",
-    data,
-  });
-}

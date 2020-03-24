@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar class="srcollbar-container">
+  <el-scrollbar class="scrollbar-container">
     <router-view />
   </el-scrollbar>
 </template>
@@ -10,7 +10,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.srcollbar-container {
+.scrollbar-container {
   width: 100vw;
   height: 100vh;
   overflow: hidden;

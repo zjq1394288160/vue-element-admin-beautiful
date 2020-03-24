@@ -79,7 +79,6 @@ export default {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  width: 100vw;
 
   ::v-deep {
     .el-scrollbar__wrap {

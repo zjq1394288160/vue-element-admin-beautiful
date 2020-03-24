@@ -1,6 +1,5 @@
 <template>
   <div class="index-container">
-    <el-alert title="欲戴王冠,必承其重" type="success"> </el-alert>
     <div class="top-panel">
       <el-row :gutter="32">
         <el-col :span="6" class="top-panel1">
@@ -17,7 +16,7 @@
                 <el-col :span="18" class="byui-alignLeft"
                   >已产出数据总量
                 </el-col>
-                <el-col :span="6" class="byui-alignRight">XXX个</el-col>
+                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -40,8 +39,8 @@
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft">进行中数量</el-col>
-                <el-col :span="6" class="byui-alignRight">XXX个</el-col>
+                <el-col :span="18" class="byui-alignLeft">进行中数量 </el-col>
+                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -64,8 +63,8 @@
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft">活跃团队数量</el-col>
-                <el-col :span="6" class="byui-alignRight">XXX个</el-col>
+                <el-col :span="18" class="byui-alignLeft">活跃团队数量 </el-col>
+                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -91,7 +90,7 @@
                 <el-col :span="18" class="byui-alignLeft"
                   >活跃执行人员数量
                 </el-col>
-                <el-col :span="6" class="byui-alignRight">XXX人</el-col>
+                <el-col :span="6" class="byui-alignRight">XXX人 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -328,22 +327,22 @@ export default {
                   return arr[index];
                 },
                 /*color: function() {
-                                                              return `rgb(
-                                                              ${Math.round(
-                                                                  Math.random() * 255
-                                                              )} , ${Math.round(
-                                                                  Math.random() * 255
-                                                              )} , ${Math.round(Math.random() * 255)} )`;
-                                                          }*/
+                                                            return `rgb(
+                                                            ${Math.round(
+                                                                Math.random() * 255
+                                                            )} , ${Math.round(
+                                                                Math.random() * 255
+                                                            )} , ${Math.round(Math.random() * 255)} )`;
+                                                        }*/
               },
             },
             data: [
               {
-                name: "byui前端敏捷开发平台",
+                name: "博云前端敏捷开发平台",
                 value: 15000,
               },
               {
-                name: "byui",
+                name: "博云",
                 value: 10081,
               },
               {
@@ -351,8 +350,16 @@ export default {
                 value: 9386,
               },
               {
-                name: "vue-element-admin-beautiful",
+                name: "李艳娜",
                 value: 7500,
+              },
+              {
+                name: "宋美玉",
+                value: 7500,
+              },
+              {
+                name: "李振国",
+                value: 6500,
               },
               {
                 name: "国防白皮书",

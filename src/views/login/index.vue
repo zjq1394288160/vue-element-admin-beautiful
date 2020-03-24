@@ -225,7 +225,7 @@ export default {
       rgba(90, 97, 240, 1),
       rgba(106, 142, 239, 1)
     );
-    box-shadow: 0px 17px 21px 0px rgba(152, 173, 241, 0.44);
+    box-shadow: 0 17px 21px 0 rgba(152, 173, 241, 0.44);
     margin-top: 5px;
 
     &:hover {
@@ -288,7 +288,7 @@ export default {
 
     .title {
       font-size: 34px;
-      color: $base-color-default;
+      color: $base-color-blue;
       margin: 0 auto 40px auto;
       text-align: center;
       font-weight: bold;

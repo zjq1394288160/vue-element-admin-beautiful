@@ -1,5 +1,5 @@
 <template>
-  <div id="tags-view-container" class="tags-view-container">
+  <div class="tags-view-container">
     <scroll-pane ref="scrollPane" @contextmenu.stop>
       <router-link
         v-for="(item, index) in visitedViews"
@@ -230,12 +230,12 @@ export default {
 
 <style lang="scss" scoped>
 .tags-view-container {
-  height: 42px;
+  height: 44px;
   width: 100%;
+  position: relative;
   background: $base-color-white;
   border: 0;
   box-shadow: none;
-
   padding-top: 5px;
 
   .tags-view-item {
@@ -254,20 +254,30 @@ export default {
     padding: 0 15px 0 15px;
 
     &.active {
-      background-color: $base-color-default;
+      background-color: $base-color-blue;
       color: $base-color-white;
-      border-color: $base-color-default;
+      border-color: $base-color-blue;
     }
 
     .el-icon-close {
-      margin: 0 0 0 5px;
+      margin: 0 0 0 3px;
+      width: 15px;
+      height: 15px;
+      box-sizing: border-box;
+      display: inline-flex;
+      justify-items: center;
+      align-items: center;
+      position: relative;
 
+      &::before {
+        position: absolute;
+        top: 2px;
+        left: 1.5px;
+      }
       &:hover {
+        border-radius: 50%;
         background-color: $base-color-red;
         color: $base-color-white;
-        display: inline-flex;
-        justify-items: center;
-        align-items: center;
       }
     }
   }

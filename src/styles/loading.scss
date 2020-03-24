@@ -14,8 +14,8 @@ $base-loading: ".byui-loading-type";
   width: 36px;
   height: 36px;
   border: 3px solid transparent;
-  border-top-color: $base-color-default;
-  border-bottom-color: $base-color-default;
+  border-top-color: $base-color-blue;
+  border-bottom-color: $base-color-blue;
   border-radius: 50%;
   animation: byuiLoading1-0 0.8s linear infinite;
 }
@@ -26,7 +26,7 @@ $base-loading: ".byui-loading-type";
   margin: auto;
   width: 8px;
   height: 8px;
-  border: 3px solid $base-color-default;
+  border: 3px solid $base-color-blue;
   border-radius: 50%;
   animation: byuiLoading1 0.5s alternate ease-in infinite;
 }
@@ -79,8 +79,8 @@ $base-loading: ".byui-loading-type";
 #{$base-loading}2,
 #{$base-loading}2:after {
   border: 3px solid transparent;
-  border-top-color: $base-color-default;
-  border-right-color: $base-color-default;
+  border-top-color: $base-color-blue;
+  border-right-color: $base-color-blue;
   border-radius: 50%;
   position: absolute;
   top: 40%;
@@ -99,8 +99,8 @@ $base-loading: ".byui-loading-type";
   height: 3em;
   margin-bottom: 15px;
   border: 3px solid transparent;
-  border-top-color: $base-color-default;
-  border-bottom-color: $base-color-default;
+  border-top-color: $base-color-blue;
+  border-bottom-color: $base-color-blue;
   border-radius: 50%;
   animation: byuiLoading3 2s ease infinite;
 }
@@ -121,11 +121,10 @@ $base-loading: ".byui-loading-type";
   display: inline-block;
   width: 30px;
   height: 30px;
-  border: 8px solid $base-color-white;
   border-radius: 50%;
-  border-color: $base-color-default;
-  border-right-color: transparent;
-  border-top-color: transparent;
+  border: 8px solid transparent;
+  border-bottom-color: $base-color-blue;
+  border-left-color: $base-color-blue;
   animation: byuiLoading4 1s linear infinite normal;
   margin: 0 auto 10px;
 }
@@ -135,7 +134,7 @@ $base-loading: ".byui-loading-type";
   width: 15px;
   height: 15px;
   margin: 0;
-  border: 6px solid $base-color-default;
+  border: 6px solid $base-color-blue;
   content: " ";
   border-radius: 50%;
   border-left-color: transparent;
@@ -164,7 +163,7 @@ $base-loading: ".byui-loading-type";
   width: 0;
   height: 0;
   margin: 0 auto 15px;
-  border: solid 1.5em $base-color-default;
+  border: solid 1.5em $base-color-blue;
   border-right: solid 1.5em transparent;
   border-left: solid 1.5em transparent;
   border-radius: 100%;
@@ -219,8 +218,8 @@ $base-loading: ".byui-loading-type";
   }
   100% {
     transform: scale(1.2) translateY(-25px) rotateX(45deg);
-    background: $base-color-default;
-    box-shadow: 0 25px 40px rgba($base-color-default, 0.5);
+    background: $base-color-blue;
+    box-shadow: 0 25px 40px rgba($base-color-blue, 0.5);
   }
 }
 
@@ -230,10 +229,10 @@ $base-loading: ".byui-loading-type";
   width: 25px;
   height: 25px;
   animation: byuiLoading7 infinite 0.75s linear;
-  border: 2px solid $base-color-default;
-  border-top-color: rgba($base-color-default, 0.2);
-  border-right-color: rgba($base-color-default, 0.2);
-  border-bottom-color: rgba($base-color-default, 0.2);
+  border: 2px solid $base-color-blue;
+  border-top-color: rgba($base-color-blue, 0.2);
+  border-right-color: rgba($base-color-blue, 0.2);
+  border-bottom-color: rgba($base-color-blue, 0.2);
   border-radius: 100%;
 }
 
@@ -251,9 +250,9 @@ $base-loading: ".byui-loading-type";
   position: relative;
   width: 20px;
   height: 20px;
-  background-color: $base-color-default;
+  background-color: $base-color-blue;
   border-radius: 50%;
-  box-shadow: 30px 0 0 0 $base-color-default;
+  box-shadow: 30px 0 0 0 $base-color-blue;
   margin: 0 auto 15px auto;
   box-sizing: border-box;
   transform: translateX(-15px);
@@ -285,7 +284,7 @@ $base-loading: ".byui-loading-type";
   display: block;
   width: 20px;
   height: 20px;
-  border: 1px $base-color-default solid;
+  border: 1px $base-color-blue solid;
   box-sizing: border-box;
   margin: 0 auto 15px auto;
   position: relative;
@@ -297,7 +296,7 @@ $base-loading: ".byui-loading-type";
   height: 4px;
   position: absolute;
   content: "";
-  background-color: $base-color-default;
+  background-color: $base-color-blue;
   top: -8px;
   left: 0;
   animation: byuiLoading9_check 1s ease-in-out infinite;
@@ -324,11 +323,11 @@ $base-loading: ".byui-loading-type";
 
 @keyframes byuiLoading9 {
   0% {
-    box-shadow: inset 0 0 0 0 rgba($base-color-default, 0.5);
+    box-shadow: inset 0 0 0 0 rgba($base-color-blue, 0.5);
     opacity: 0.5;
   }
   100% {
-    box-shadow: inset 0 -20px 0 0 $base-color-default;
+    box-shadow: inset 0 -20px 0 0 $base-color-blue;
   }
 }
 

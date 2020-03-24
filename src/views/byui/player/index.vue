@@ -25,10 +25,9 @@
           <byui-player-custom
             :config="config4"
             :jump-num="10"
-            @getImgSrc="getImgSrcs"
+            @getImgSrc="getImgSrc"
             @player="Player4 = $event"
           />
-          <!-- <byui-player-custom :config="config4" @player="Player4 = $event"/> -->
         </el-card>
       </el-col>
     </el-row>
@@ -55,22 +54,22 @@ export default {
     return {
       config1: {
         id: "mse1",
-        url: "video/boyun.mp4",
+        url: "/video/boyun.mp4",
       },
       Player1: null,
       config2: {
         id: "mse2",
-        url: "video/boyun.m3u8",
+        url: "/video/boyun.m3u8",
       },
       Player2: null,
       config3: {
         id: "mse3",
-        url: "video/boyun.flv",
+        url: "/video//boyun.flv",
       },
       Player3: null,
       config4: {
         id: "mse4",
-        url: "video/boyun.mp4",
+        url: "/video/boyun.mp4",
       },
       Player4: null,
     };
@@ -78,7 +77,7 @@ export default {
   created() {},
   mounted() {},
   methods: {
-    getImgSrcs(src) {},
+    getImgSrc(src) {},
   },
 };
 </script>

@@ -18,9 +18,9 @@
   content: "";
   position: absolute;
   left: 30px;
-  top: 5.33333px;
+  top: 5px;
   width: 4px;
-  height: 26.66667px;
+  height: 27px;
   transform-origin: 50% 100%;
 }
 
@@ -31,10 +31,10 @@
   -webkit-border-radius: 8px;
   border-radius: 8px;
   position: absolute;
-  left: 25.6px;
-  top: 25.6px;
-  width: 12.8px;
-  height: 12.8px;
+  left: 26px;
+  top: 26px;
+  width: 13px;
+  height: 13px;
 }
 
 @keyframes gauge-loader {

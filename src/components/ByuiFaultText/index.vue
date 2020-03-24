@@ -90,7 +90,7 @@ export default {
       .bar {
         width: 100%;
         flex: 1;
-        background: $base-color-default;
+        background: $base-color-blue;
         border-radius: 50px;
         animation: 0.6s cubic-bezier(0.4, 0.2, 0.175, 1) forwards;
 
@@ -121,7 +121,7 @@ export default {
         font-weight: bold;
         font-size: 2em;
         letter-spacing: 5px;
-        color: $base-color-default;
+        color: $base-color-blue;
 
         &:not(:last-child) {
           --ratio: calc(100% / var(--slice-count));

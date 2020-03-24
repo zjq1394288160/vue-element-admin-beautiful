@@ -11,7 +11,6 @@
         :collapse-transition="false"
         :default-openeds="defaultOpen"
         :unique-opened="false"
-        class="el-menu-vertical-demo"
         mode="vertical"
       >
         <sidebar-item
@@ -27,7 +26,7 @@
 <script>
 import path from "path";
 import Logo from "@/layout/components/Logo";
-import SidebarItem from "./SidebarItem";
+import SidebarItem from "./SideBarItem";
 import variables from "@/styles/variables.scss";
 import { version } from "@/settings";
 
@@ -84,11 +83,11 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 999;
+  z-index: 1;
 
   ::v-deep {
     .el-menu {
-      border: 0px;
+      border: 0;
     }
 
     .svg-inline {

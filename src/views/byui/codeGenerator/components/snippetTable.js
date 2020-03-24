@@ -18,6 +18,7 @@ export const genTableSnippet = (headers = "getList") => {
                 <el-input
                     v-model="queryForm.${headers[0].key}"
                     placeholder="请输入查询条件"
+                    clearable
                 />
                 <el-button
                     native-type="submit"

@@ -1,28 +1,29 @@
 <template>
   <div class="colorful-icon-container">
+    <el-divider content-position="left">点击图标即可复制源码 </el-divider>
     <el-row :gutter="15">
       <el-col :span="24">
-        <el-form ref="form" :inline="true" label-width="80px">
+        <el-form
+          @submit.native.prevent
+          ref="form"
+          :inline="true"
+          label-width="80px"
+        >
           <el-form-item label="图标名称">
             <el-input v-model="name"></el-input>
           </el-form-item>
-          <el-form-item label-width="0px">
+          <!--<el-form-item label-width="0">
             <el-button native-type="submit" type="primary" @click="submit"
               >搜索
             </el-button>
-          </el-form-item>
+          </el-form-item>-->
 
-          <el-form-item label-width="0px">
+          <el-form-item label-width="0">
             {{ tips }}
           </el-form-item>
-          <el-form-item label-width="0px">
-            <input
-              id="copyText"
-              :value="copyText"
-              type="text"
-              style="width: 400px;"
-            />
-          </el-form-item>
+          <!-- <el-form-item label-width="0">
+            <el-input :value="copyText" type="text"></el-input>
+          </el-form-item>-->
         </el-form>
       </el-col>
 
@@ -120,7 +121,7 @@ export default {
 
       svg:not(:root) {
         cursor: pointer;
-        color: $base-color-default;
+        color: $base-color-blue;
         vertical-align: middle;
         text-align: center;
         font-size: 28px;

@@ -217,7 +217,7 @@ export default {
       font-size: 32px;
       font-weight: bold;
       line-height: 40px;
-      color: $base-color-default;
+      color: $base-color-blue;
       opacity: 0;
       margin-bottom: 20px;
       animation-name: slideUp;
@@ -255,7 +255,7 @@ export default {
       float: left;
       width: 110px;
       height: 36px;
-      background: $base-color-default;
+      background: $base-color-blue;
       border-radius: 100px;
       text-align: center;
       color: #ffffff;

@@ -29,10 +29,11 @@
 
 <script>
 import Logo from "@/layout/components/Logo";
-import tabItem from "./TabItem";
+import tabItem from "./TopBarItem";
 import variables from "@/styles/variables.scss";
 import ByuiMain from "@/components/ByuiMain";
 import { mapGetters } from "vuex";
+
 export default {
   components: { tabItem, Logo, ByuiMain },
   data() {
@@ -62,7 +63,9 @@ export default {
 <style lang="scss" scoped>
 .top-bar-container {
   background: $base-color-header;
-
+  .el-menu.el-menu--horizontal {
+    border-bottom: solid 0 transparent;
+  }
   ::v-deep {
     .byui-main {
       background: $base-color-header;

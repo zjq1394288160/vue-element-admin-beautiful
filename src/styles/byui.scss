@@ -1,6 +1,6 @@
 @charset "utf-8";
-@import "./common.scss";
 @import "./variables.scss";
+@import "./common.scss";
 @import "./transition.scss";
 @import "./loading.scss";
 
@@ -59,9 +59,9 @@ html {
       }
 
       .ql-snow .ql-tooltip.ql-editing a.ql-action::after {
-        border-right: 0px;
+        border-right: 0;
         content: "保存";
-        padding-right: 0px;
+        padding-right: 0;
       }
 
       .ql-snow .ql-tooltip[data-mode="video"]::before {
@@ -133,12 +133,12 @@ html {
         content: "衬线字体";
       }
 
-      .ql-snow
-        .ql-picker.ql-font
-        .ql-picker-label[data-value="monospace"]::before,
-      .ql-snow
-        .ql-picker.ql-font
-        .ql-picker-item[data-value="monospace"]::before {
+      .ql-snow,
+      .ql-picker.ql-font,
+      .ql-picker-label[data-value="monospace"]::before,
+      .ql-snow,
+      .ql-picker.ql-font,
+      .ql-picker-item[data-value="monospace"]::before {
         content: "等宽字体";
       }
     }
@@ -258,11 +258,11 @@ html {
     /*进度条开始*/
     #nprogress {
       .bar {
-        background: $base-color-default !important;
+        background: $base-color-blue !important;
       }
 
       .peg {
-        box-shadow: 0 0 10px $base-color-default, 0 0 5px $base-color-default !important;
+        box-shadow: 0 0 10px $base-color-blue, 0 0 5px $base-color-blue !important;
       }
     }
 
@@ -332,19 +332,6 @@ html {
     }
 
     /*表格结束*/
-    /*纵向菜单开始*/
-    .el-menu--vertical {
-      .el-menu-item {
-        height: 36px !important;
-        line-height: 36px !important;
-
-        &.is-active {
-          background-color: $base-menu-active !important;
-        }
-      }
-    }
-
-    /*纵向菜单结束*/
 
     /*分页开始*/
     .el-pagination {
@@ -382,13 +369,13 @@ html {
 
       &--primary {
         color: $base-color-white;
-        background-color: $base-color-default;
-        border-color: $base-color-default;
+        background-color: $base-color-blue;
+        border-color: $base-color-blue;
 
         &:focus {
           color: $base-color-white;
-          background-color: $base-color-default;
-          border-color: $base-color-default;
+          background-color: $base-color-blue;
+          border-color: $base-color-blue;
         }
       }
 
@@ -478,7 +465,7 @@ html {
     .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
       outline: 0;
       color: $base-color-white;
-      background-color: $base-color-default;
+      background-color: $base-color-blue;
     }
 
     /*卡片开始*/
@@ -524,18 +511,11 @@ html {
       .el-dropdown {
         float: right;
         padding: 10px 0 10px 0;
-        color: $base-color-default;
+        color: $base-color-blue;
       }
     }
 
     /*卡片结束*/
-    .tags-view-wrapper {
-      .tags-view-item {
-        .el-icon-close:hover {
-          background-color: $base-color-red;
-        }
-      }
-    }
 
     /*树形组件开始*/
     #{$base}-filter-tree {
@@ -560,7 +540,7 @@ html {
         margin-right: 5px;
 
         &:hover {
-          color: $base-color-default;
+          color: $base-color-blue;
         }
       }
     }
@@ -572,7 +552,7 @@ html {
         }
 
         #{$base}-tree-item {
-          color: $base-color-default;
+          color: $base-color-blue;
         }
       }
     }
@@ -581,7 +561,7 @@ html {
       > .el-tree-node {
         &__content {
           #{$base}-tree-item {
-            color: $base-color-default;
+            color: $base-color-blue;
           }
         }
       }

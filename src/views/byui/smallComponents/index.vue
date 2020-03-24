@@ -9,22 +9,6 @@
       <el-col :span="6">
         <el-card shadow="hover">
           <div slot="header">
-            <span>revealText</span>
-            <el-button
-              @click="handleRevealText"
-              style="float: right; padding: 3px 0;"
-              type="text"
-              >重载
-            </el-button>
-          </div>
-          <byui-reveal-text ref="revealText"
-            >这里是reveal特效
-          </byui-reveal-text>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card shadow="hover">
-          <div slot="header">
             <span>snow</span>
           </div>
           <byui-snow></byui-snow>
@@ -59,7 +43,10 @@
               >重载
             </el-button>
           </div>
-          <byui-solid-text text="我爱自由" ref="solidText"> </byui-solid-text>
+          <byui-solid-text
+            text="我爱自由"
+            v-if="solidTextShow"
+          ></byui-solid-text>
         </el-card>
       </el-col>
       <el-col :span="6">
@@ -90,7 +77,6 @@
 </template>
 
 <script>
-import ByuiRevealText from "@/components/ByuiRevealText";
 import ByuiSnow from "@/components/ByuiSnow";
 import ByuiProfile from "@/components/ByuiProfile";
 import ByuiSolidText from "@/components/ByuiSolidText";
@@ -100,7 +86,6 @@ import ByuiCharge from "@/components/ByuiCharge";
 export default {
   name: "Sticky",
   components: {
-    ByuiRevealText,
     ByuiSnow,
     ByuiProfile,
     ByuiSolidText,
@@ -111,6 +96,7 @@ export default {
     return {
       profileShow: true,
       faultTextShow: true,
+      solidTextShow: true,
       startVal: 0,
       endVal: 20,
       timeInterval: null,
@@ -118,7 +104,6 @@ export default {
   },
   mounted() {
     this.timeInterval = setInterval(() => {
-      /* this.handleRevealText();*/
       this.handleProfile();
       this.handleSolidText();
       this.handleFaultText();
@@ -136,9 +121,6 @@ export default {
     }
   },
   methods: {
-    handleRevealText() {
-      this.$refs["revealText"].init();
-    },
     handleProfile() {
       this.profileShow = false;
       setTimeout(() => {
@@ -146,7 +128,10 @@ export default {
       });
     },
     handleSolidText() {
-      this.$refs["solidText"].init();
+      this.solidTextShow = false;
+      setTimeout(() => {
+        this.solidTextShow = true;
+      });
     },
     handleFaultText() {
       this.faultTextShow = false;

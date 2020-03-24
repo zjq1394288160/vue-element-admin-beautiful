@@ -102,7 +102,7 @@ export default {
 
           .right-menu {
             .avatar-container {
-              margin-right: 0px;
+              margin-right: 0;
             }
           }
         }
@@ -138,7 +138,7 @@ export default {
     .byui-main-padding {
       width: $base-right-content-width;
       margin-left: $base-left-menu-width;
-      background: #f2f2f2;
+      background: #f6f8f9;
       padding-top: 94px;
       transition: left 0.5s;
 
@@ -146,7 +146,7 @@ export default {
         .nav-bar-container {
           transition: left 0.5s;
           position: fixed;
-          z-index: 999;
+          z-index: 1;
           top: 0;
           right: 0;
           left: $base-left-menu-width;
@@ -155,7 +155,7 @@ export default {
         .tags-view-container {
           transition: left 0.5s;
           position: fixed;
-          z-index: 999;
+          z-index: 1;
           top: 0;
           right: 0;
           left: $base-left-menu-width;

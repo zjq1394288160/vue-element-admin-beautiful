@@ -25,12 +25,7 @@
         </el-menu-item>
       </app-link>
     </template>
-    <el-submenu
-      v-else
-      ref="subMenu"
-      :index="resolvePath(item.path)"
-      popper-append-to-body
-    >
+    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)">
       <template slot="title">
         <byui-icon
           v-if="item.meta && item.meta.icon"

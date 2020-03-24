@@ -121,7 +121,7 @@ export default {
   vertical-align: middle;
   padding-top: 15px;
   border-radius: 99px;
-  border: 1px solid $base-color-default;
+  border: 1px solid $base-color-blue;
   padding-left: 15px;
   box-shadow: $base-box-shadow;
   z-index: 9999;

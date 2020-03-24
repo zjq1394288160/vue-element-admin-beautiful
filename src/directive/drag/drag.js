@@ -8,7 +8,7 @@ export default {
       const dialogHeaderEl = el.querySelector(".el-dialog__header");
       const dragDom = el.querySelector(".el-dialog");
       dialogHeaderEl.style.cssText += ";cursor:move;";
-      dragDom.style.cssText += ";top:0px;";
+      dragDom.style.cssText += ";top:0;";
 
       const getStyle = (function () {
         if (window.document.currentStyle) {
