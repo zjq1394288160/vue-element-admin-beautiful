@@ -74,7 +74,7 @@ export default {
     top: 27%;
     text-align: center;
     font-size: 32px;
-    z-index: 10;
+    z-index: 99;
     color: #fff;
   }
 
@@ -124,7 +124,7 @@ export default {
       transform: translate(-50%, -50%);
       border-radius: 50%;
       background-color: #000;
-      z-index: 10;
+      z-index: 99;
     }
   }
 

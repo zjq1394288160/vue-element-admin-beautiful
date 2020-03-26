@@ -2,7 +2,7 @@
   <div class="card-container">
     <el-row :gutter="15">
       <el-col v-for="(item, index) in list" :key="index" :span="4">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header">
             <span>{{ item.title }}</span>
             <el-switch v-model="item.switch"></el-switch>

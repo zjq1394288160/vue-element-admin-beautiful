@@ -1,10 +1,15 @@
+/**
+ * @description 渲染路由
+ * @param constantRoutes
+ * @returns {*}
+ */
 export function filterRoutes(constantRoutes) {
   return constantRoutes.filter((route) => {
     if (route.component) {
       if (route.component === "Layout") {
-        route.component = () => import("@/layout");
+        route.component = () => import("@/layouts");
       } else if (route.component === "EmptyLayout") {
-        route.component = () => import("@/layout/emptyLayout");
+        route.component = () => import("@/layouts/EmptyLayout");
       } else {
         const path = "views/" + route.component;
         route.component = () => import(`@/${path}`);

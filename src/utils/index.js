@@ -1,3 +1,9 @@
+/**
+ * @description 格式化时间
+ * @param time
+ * @param cFormat
+ * @returns {string|null}
+ */
 export function parseTime(time, cFormat) {
   if (arguments.length === 0) {
     return null;
@@ -37,6 +43,12 @@ export function parseTime(time, cFormat) {
   return time_str;
 }
 
+/**
+ * @description 格式化时间
+ * @param time
+ * @param option
+ * @returns {string}
+ */
 export function formatTime(time, option) {
   if (("" + time).length === 10) {
     time = parseInt(time) * 1000;
@@ -75,7 +87,11 @@ export function formatTime(time, option) {
   }
 }
 
-/*将url请求参数转为json格式*/
+/**
+ * @description 将url请求参数转为json格式
+ * @param url
+ * @returns {{}|any}
+ */
 export function param2Obj(url) {
   const search = url.split("?")[1];
   if (!search) {
@@ -92,7 +108,11 @@ export function param2Obj(url) {
   );
 }
 
-/*父子关系的数组转换成树形结构数据*/
+/**
+ * @description 父子关系的数组转换成树形结构数据
+ * @param data
+ * @returns {*}
+ */
 export function translateDataToTree(data) {
   const parent = data.filter(
     (value) => value.parentId === "undefined" || value.parentId == null
@@ -118,7 +138,11 @@ export function translateDataToTree(data) {
   return parent;
 }
 
-/*树形结构数据转换成父子关系的数组*/
+/**
+ * @description 树形结构数据转换成父子关系的数组
+ * @param data
+ * @returns {[]}
+ */
 export function translateTreeToData(data) {
   const result = [];
   data.forEach((item) => {
@@ -140,7 +164,11 @@ export function translateTreeToData(data) {
   return result;
 }
 
-//10位时间戳转换
+/**
+ * @description 10位时间戳转换
+ * @param time
+ * @returns {string}
+ */
 export function tenBitTimestamp(time) {
   const date = new Date(time * 1000);
   const y = date.getFullYear();
@@ -157,7 +185,11 @@ export function tenBitTimestamp(time) {
   return y + "年" + m + "月" + d + "日 " + h + ":" + minute + ":" + second; //组合
 }
 
-//13位时间戳转换
+/**
+ * @description 13位时间戳转换
+ * @param time
+ * @returns {string}
+ */
 export function thirteenBitTimestamp(time) {
   const date = new Date(time / 1);
   const y = date.getFullYear();
@@ -174,37 +206,23 @@ export function thirteenBitTimestamp(time) {
   return y + "年" + m + "月" + d + "日 " + h + ":" + minute + ":" + second; //组合
 }
 
-//uuid
+/**
+ * @description 获取随机id
+ * @param length
+ * @returns {string}
+ */
 export function uuid(length) {
   return Number(
     Math.random().toString().substr(3, length) + Date.now()
   ).toString(36);
 }
 
-//m到n的随机数
+/**
+ * @description m到n的随机数
+ * @param m
+ * @param n
+ * @returns {number}
+ */
 export function random(m, n) {
   return Math.floor(Math.random() * (m - n) + n);
 }
-
-import Clipboard from "clipboard";
-
-export const handleClipboard = function (text, event) {
-  return new Promise((resolve, reject) => {
-    const clipboard = new Clipboard(event.target, {
-      text: () => text,
-    });
-    clipboard.on("success", () => {
-      clipboard.off("error");
-      clipboard.off("success");
-      clipboard.destroy();
-      resolve("success");
-    });
-    clipboard.on("error", () => {
-      clipboard.off("error");
-      clipboard.off("success");
-      clipboard.destroy();
-      reject("error");
-    });
-    clipboard.onClick(event);
-  });
-};

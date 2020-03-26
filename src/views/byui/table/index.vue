@@ -1,32 +1,39 @@
 <template>
   <div class="table-container">
-    <div class="byui-query-form">
-      <div class="byui-query-form-left">
+    <byui-query-form>
+      <byui-query-form-left-panel>
         <el-button icon="el-icon-plus" type="primary" @click="handleAdd"
           >添加
         </el-button>
         <el-button icon="el-icon-delete" type="danger" @click="handleDelete"
           >删除
         </el-button>
-        <el-button type="primary" @click="testMessage">baseMessage </el-button>
-        <el-button type="primary" @click="testALert">baseAlert </el-button>
-        <el-button type="primary" @click="testConfirm">baseConfirm </el-button>
-        <el-button type="primary" @click="testNotify">baseNotify </el-button>
+        <el-button type="primary" @click="testMessage">baseMessage</el-button>
+        <el-button type="primary" @click="testALert">baseAlert</el-button>
+        <el-button type="primary" @click="testConfirm">baseConfirm</el-button>
+        <el-button type="primary" @click="testNotify">baseNotify</el-button>
         <el-button v-if="checkPermission(['超级管理员'])" type="primary"
           >按钮级权限
         </el-button>
-      </div>
-      <el-form ref="form" :model="queryForm" class="byui-query-form-right">
-        <el-input v-model="queryForm.title" placeholder="标题" />
-        <el-button
-          icon="el-icon-search"
-          type="primary"
-          @click="handleQuery"
-          native-type="submit"
-          >查询
-        </el-button>
-      </el-form>
-    </div>
+      </byui-query-form-left-panel>
+      <byui-query-form-right-panel>
+        <el-form ref="form" :model="queryForm" :inline="true">
+          <el-form-item>
+            <el-input v-model="queryForm.title" placeholder="标题" />
+          </el-form-item>
+          <el-form-item>
+            <el-button
+              icon="el-icon-search"
+              type="primary"
+              @click="handleQuery"
+              native-type="submit"
+              >查询
+            </el-button>
+          </el-form-item>
+        </el-form>
+      </byui-query-form-right-panel>
+    </byui-query-form>
+
     <el-table
       ref="tableSort"
       v-loading="listLoading"
@@ -170,11 +177,11 @@ export default {
     },
     imgLine(img) {
       /*const index = this.imageList.indexOf(img);
-                            const imageList = this.imageList;
-                            this.imageList = this.imageList
-                                .slice(index)
-                                .concat(this.imageList.slice(0, index));
-                            */
+                                      const imageList = this.imageList;
+                                      this.imageList = this.imageList
+                                          .slice(index)
+                                          .concat(this.imageList.slice(0, index));
+                                      */
     },
     setSelectRows(val) {
       this.selectRows = val;

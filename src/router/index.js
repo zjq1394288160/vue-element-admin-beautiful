@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Layout from "@/layout";
+import Layout from "@/layouts";
 
 Vue.use(Router);
 
@@ -78,6 +78,18 @@ export const asyncRoutes = [
         name: "CodeGenerator",
         component: () => import("@/views/byui/codeGenerator/index"),
         meta: { title: "代码生成机" },
+      },
+      {
+        path: "news",
+        name: "News",
+        component: () => import("@/views/byui/news/index"),
+        meta: { title: "新闻" },
+      },
+      {
+        path: "markdown",
+        name: "Markdown",
+        component: () => import("@/views/byui/markdown/index"),
+        meta: { title: "markdown阅读器" },
       },
       {
         path: "smallComponents",

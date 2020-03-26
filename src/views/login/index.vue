@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import { isPassword, isUserName } from "@/utils/validate";
+import { isPassword } from "@/utils/validate";
 
 export default {
   name: "Login",
@@ -97,8 +97,6 @@ export default {
     const validateUserName = (rule, value, callback) => {
       if ("" == value) {
         callback(new Error("用户名不能为空"));
-      } else if (!isUserName(value)) {
-        callback(new Error("请输入正确的用户名"));
       } else {
         callback();
       }

@@ -2,7 +2,7 @@
   <div class="magnifier-container">
     <el-row :gutter="15">
       <el-col :span="12">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>放大镜1</span></div>
           <byui-magnifier
             url="http://p5.qhimg.com/t01cda6297b033f789f.jpg"
@@ -11,7 +11,7 @@
         </el-card>
       </el-col>
       <el-col :span="12">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>放大镜2</span></div>
           <byui-magnifier
             url="http://p5.qhimg.com/t01cda6297b033f789f.jpg"

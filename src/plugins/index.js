@@ -14,7 +14,18 @@ import "./f12";
 import drag from "@/directive/drag";
 import permission from "@/directive/permission";
 import "./byuiIcon";
+import ByuiQueryForm from "@/components/ByuiQueryForm";
+import ByuiQueryFormTopPanel from "@/components/ByuiQueryForm/ByuiQueryFormTopPanel";
+import ByuiQueryFormBottomPanel from "@/components/ByuiQueryForm/ByuiQueryFormBottomPanel";
+import ByuiQueryFormLeftPanel from "@/components/ByuiQueryForm/ByuiQueryFormLeftPanel";
+import ByuiQueryFormRightPanel from "@/components/ByuiQueryForm/ByuiQueryFormRightPanel";
 
 Vue.use(permission);
 Vue.use(drag);
 Vue.use(byui);
+
+Vue.component("byui-query-form", ByuiQueryForm);
+Vue.component("byui-query-form-left-panel", ByuiQueryFormLeftPanel);
+Vue.component("byui-query-form-right-panel", ByuiQueryFormRightPanel);
+Vue.component("byui-query-form-top-panel", ByuiQueryFormTopPanel);
+Vue.component("byui-query-form-bottom-panel", ByuiQueryFormBottomPanel);

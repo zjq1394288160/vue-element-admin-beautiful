@@ -2,7 +2,7 @@
   <div class="lodash-container">
     <el-row :gutter="15">
       <el-col :span="24">
-        <el-card>
+        <el-card shadow="hover">
           <el-link
             type="primary"
             href="https://www.lodashjs.com/"
@@ -13,7 +13,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header">
             <span>去除数组array中的最后一个元素</span>
           </div>
@@ -26,7 +26,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header">
             <span>返回数组 array的第一个元素</span>
           </div>
@@ -39,7 +39,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>合并数组</span></div>
           <div class="lodash-content">
             this.baseLodash().concat([1],[2])
@@ -50,7 +50,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>左切片</span></div>
           <div class="lodash-content">
             this.baseLodash().drop([1, 2, 3],2切除的数量)
@@ -61,7 +61,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>右切片</span></div>
           <div class="lodash-content">
             this.baseLodash().dropRight([1, 2, 3],2切除的数量)
@@ -72,7 +72,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>修改拼接</span></div>
           <div class="lodash-content">
             this.baseLodash().join(['a', 'b', 'c'], '~');
@@ -83,7 +83,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>获取数组最后一个元素</span></div>
           <div class="lodash-content">
             this.baseLodash().last(['a', 'b', 'c']);
@@ -94,7 +94,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>数组去重</span></div>
           <div class="lodash-content">
             this.baseLodash().uniq(['a', 'b', 'a']);
@@ -105,7 +105,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>获取数组的最大值</span></div>
           <div class="lodash-content">
             this.baseLodash().max([4, 2, 8, 6])
@@ -116,7 +116,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>获取数组的最小值</span></div>
           <div class="lodash-content">
             this.baseLodash().min([4, 2, 8, 6])
@@ -127,7 +127,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header">
             <span>四舍五入(保留任意位小数)</span>
           </div>
@@ -140,7 +140,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>数组内数据相加</span></div>
           <div class="lodash-content">
             this.baseLodash().sum([4, 2, 8, 6])
@@ -151,7 +151,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>返回随机数</span></div>
           <div class="lodash-content">
             this.baseLodash().random(0, 5)
@@ -162,7 +162,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>返回数组内的随机数</span></div>
           <div class="lodash-content">
             this.baseLodash().sample([1, 2, 3, 4])
@@ -173,7 +173,7 @@
       </el-col>
 
       <el-col :span="6">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>事件防抖动</span></div>
           <div class="lodash-content">
             this.baseLodash().debounce(@click的事件,延迟的毫秒数)

@@ -1,7 +1,5 @@
 <template>
-  <el-scrollbar class="scrollbar-container">
-    <router-view />
-  </el-scrollbar>
+  <router-view />
 </template>
 
 <script>
@@ -9,16 +7,4 @@ export default {
   name: "App",
 };
 </script>
-<style lang="scss" scoped>
-.scrollbar-container {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-
-  ::v-deep {
-    .el-scrollbar__wrap {
-      overflow-x: hidden;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -9,6 +9,11 @@ function clipboardError() {
   Vue.prototype.baseMessage("复制失败", "error");
 }
 
+/**
+ * @description 复制数据
+ * @param text
+ * @param event
+ */
 export default function handleClipboard(text, event) {
   const clipboard = new Clipboard(event.target, {
     text: () => text,

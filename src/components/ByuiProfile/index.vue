@@ -225,7 +225,7 @@ export default {
         }
 
         svg {
-          z-index: 1;
+          z-index: 99;
           transform: scale(0);
           animation: scale-in 0.5s cubic-bezier(0.75, 0, 0, 1) forwards;
         }

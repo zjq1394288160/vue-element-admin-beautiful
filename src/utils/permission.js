@@ -1,5 +1,10 @@
 import store from "@/store";
 
+/**
+ * @description 检查权限
+ * @param value
+ * @returns {boolean}
+ */
 export default function checkPermission(value) {
   if (value && value instanceof Array && value.length > 0) {
     const roles = store.getters && store.getters.roles;

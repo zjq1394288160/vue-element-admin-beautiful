@@ -2,7 +2,7 @@
   <div class="qr-code-container">
     <el-row :gutter="15">
       <el-col :span="4">
-        <el-card>
+        <el-card shadow="hover">
           <div slot="header"><span>二维码示例</span></div>
           <a target="_blank" :href="url">
             <byui-qr-code :image-path="imagePath" :url="url"></byui-qr-code>

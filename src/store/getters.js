@@ -1,6 +1,7 @@
 const getters = {
   accessToken: (state) => state.user.accessToken,
   avatar: (state) => state.user.avatar,
+  collapse: (state) => state.settings.collapse,
   cachedViews: (state) => state.tagsView.cachedViews,
   errorLogs: (state) => state.errorLog.logs,
   lastLoginTime: (state) => state.user.lastLoginTime,

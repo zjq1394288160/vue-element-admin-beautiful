@@ -1,6 +1,10 @@
 import { storage, tokenTableName } from "@/settings";
 import cookie from "js-cookie";
 
+/**
+ * @description 获取token
+ * @returns {string|ActiveX.IXMLDOMNode|Promise<any>|any|IDBRequest<any>|MediaKeyStatus|FormDataEntryValue|Function|Promise<Credential | null>}
+ */
 export function getToken() {
   if (storage) {
     if ("localStorage" === storage) {
@@ -17,6 +21,11 @@ export function getToken() {
   }
 }
 
+/**
+ * @description 存储token
+ * @param accessToken
+ * @returns {void|*}
+ */
 export function setToken(accessToken) {
   if (storage) {
     if ("localStorage" === storage) {
@@ -33,6 +42,10 @@ export function setToken(accessToken) {
   }
 }
 
+/**
+ * @description 移除token
+ * @returns {void|Promise<void>}
+ */
 export function removeToken() {
   if (storage) {
     if ("localStorage" === storage) {
