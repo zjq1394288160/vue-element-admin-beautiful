@@ -109,34 +109,6 @@ export default {
           value: "1",
           label: "飞冰早报",
         },
-        {
-          value: "2",
-          label: "开源中国",
-        },
-        {
-          value: "3",
-          label: "掘金",
-        },
-        {
-          value: "4",
-          label: "中国政府",
-        },
-        {
-          value: "5",
-          label: "联合国",
-        },
-        {
-          value: "6",
-          label: "UI中国",
-        },
-        {
-          value: "7",
-          label: "站酷",
-        },
-        {
-          value: "8",
-          label: "阮一峰的博客",
-        },
       ],
       value: "0",
       newsList: [],
@@ -177,63 +149,6 @@ export default {
           getFbzbList(this.pagination).then((res) => {
             this.pagination.total = res.total;
             this.newsList = res.data;
-          });
-          break;
-        case "2":
-          getKyzgList(this.pagination).then((res) => {
-            const list = this.x2js.xml2js(res.data).rss.channel.item;
-            this.pagination.total = list.length;
-            this.pagination.pageSize = list.length;
-            this.newsList = list;
-          });
-          break;
-        case "3":
-          getJjList(this.pagination).then((res) => {
-            const list = this.x2js.xml2js(res.data).rss.channel.item;
-            this.pagination.total = list.length;
-            this.pagination.pageSize = list.length;
-            this.newsList = list;
-          });
-          break;
-        case "4":
-          getZgzfList(this.pagination).then((res) => {
-            const list = this.x2js.xml2js(res.data).rss.channel.item;
-            this.pagination.total = list.length;
-            this.pagination.pageSize = list.length;
-            this.newsList = list;
-          });
-          break;
-        case "5":
-          getLhgList(this.pagination).then((res) => {
-            debugger;
-            const list = this.x2js.xml2js(res.data).rss.channel.item;
-            this.pagination.total = list.length;
-            this.pagination.pageSize = list.length;
-            this.newsList = list;
-          });
-          break;
-        case "6":
-          getUizgList(this.pagination).then((res) => {
-            const list = this.x2js.xml2js(res.data).rss.channel.item;
-            this.pagination.total = list.length;
-            this.pagination.pageSize = list.length;
-            this.newsList = list;
-          });
-          break;
-        case "7":
-          getZkList(this.pagination).then((res) => {
-            const list = this.x2js.xml2js(res.data).rss.channel.item;
-            this.pagination.total = list.length;
-            this.pagination.pageSize = list.length;
-            this.newsList = list;
-          });
-          break;
-        case "8":
-          getRyfdbkList(this.pagination).then((res) => {
-            const list = this.x2js.xml2js(res.data).rss.channel.item;
-            this.pagination.total = list.length;
-            this.pagination.pageSize = list.length;
-            this.newsList = list;
           });
           break;
       }
