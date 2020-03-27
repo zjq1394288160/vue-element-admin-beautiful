@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       themeBar,
-      drawerVisible: true,
+      drawerVisible: false,
       theme: {
         layout: "",
         menuBackground: variables.menuBackground,
@@ -77,7 +77,9 @@ export default {
   computed: {
     ...mapGetters(["layout"]),
   },
-  mounted() {},
+  mounted() {
+    this.drawerVisible=true;//用于演示
+  },
   created() {
     const theme = localStorage.getItem("BYUI-THEME");
     this.theme.layout = this.layout;
