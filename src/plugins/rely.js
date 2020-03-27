@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { copyright } from "@/settings";
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "development") {
   var __encode = "sojson.com",
     _0xb483 = [
       "\x5F\x64\x65\x63\x6F\x64\x65",
@@ -91,7 +91,7 @@ if (process.env.NODE_ENV === "development") {
 }
 if (process.env.NODE_ENV !== "development") {
   console.log(
-    "\n %c " + copyright + "  %c 前端敏捷开发平台2.2 \n\n",
+    "\n %c " + copyright + "  %c 博云前端敏捷开发平台2.2 \n\n",
     "color: #fadfa3; background: #030307; padding:5px 0;",
     "background: #fadfa3; padding:5px 0;"
   );
