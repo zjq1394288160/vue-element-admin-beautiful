@@ -11,6 +11,12 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-size: $base-font-size-default;
+
+    .el-menu.el-menu--popup.el-menu--popup-right-start {
+      max-height: 90vh;
+      overflow-y: scroll;
+    }
+
     /*文本编辑器开始*/
     .quill-editor {
       border: 1px solid #dcdfe6;
@@ -148,66 +154,13 @@ html {
     /*大图展示开始*/
     .el-image-viewer {
       &__close {
-        width: 44px;
-        height: 44px;
-        border-radius: 99px;
-        opacity: 0.8;
-        background: #606266;
-        font-size: 24px;
-
         .el-icon-circle-close {
           color: $base-color-white;
-        }
-      }
-
-      &__canvas {
-        img {
-          border-radius: $base-border-radius;
-        }
-      }
-
-      &__actions {
-        &__inner {
-          i {
-            cursor: pointer;
-          }
         }
       }
     }
 
     /*大图展示结束*/
-
-    #{$base} {
-      /*查询开始*/
-      &-query-form {
-        margin-bottom: 15px;
-        min-height: 40px;
-        white-space: nowrap;
-        overflow: auto;
-        text-overflow: ellipsis;
-        width: 100%;
-
-        button {
-          display: inline-block;
-        }
-      }
-
-      &-query-form-left {
-        float: left;
-      }
-
-      &-query-form-right {
-        float: right;
-        text-align: right;
-
-        .el-input {
-          width: 200px;
-          display: inline-block;
-        }
-      }
-
-      /*查询结束*/
-    }
 
     .app-wrapper {
       min-width: $base-main-width;
@@ -220,11 +173,11 @@ html {
         min-width: $base-main-width;
       }
 
-      .main-container {
+      .app-main-container {
         min-width: $base-main-width;
       }
 
-      .main-container {
+      .app-main-container {
         > [class*="-container"] {
           padding: 20px;
           background: $base-color-white;
@@ -245,11 +198,6 @@ html {
               //2048屏幕
               width: 82.5%;
             }
-          }
-
-          &-main-padding {
-            margin-top: 15px;
-            margin-bottom: 15px;
           }
         }
       }
@@ -344,7 +292,19 @@ html {
     }
 
     /*分页结束*/
+    /*纵向菜单开始*/
+    .el-menu--vertical {
+      .el-menu-item {
+        height: 36px !important;
+        line-height: 36px !important;
 
+        &.is-active {
+          background-color: $base-menu-active-background !important;
+        }
+      }
+    }
+
+    /*纵向菜单结束*/
     /*tag开始*/
     .el-tag {
       &--small {

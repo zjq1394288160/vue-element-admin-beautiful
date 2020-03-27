@@ -4,7 +4,7 @@
   >
     <logo />
     <el-menu
-      :background-color="variables.menuBg"
+      :background-color="variables.menuBackground"
       :text-color="variables.menuText"
       :active-text-color="variables.menuTextAcive"
       :default-active="activeMenu"
@@ -103,11 +103,11 @@ export default {
       line-height: 46px !important;
 
       &:hover {
-        background-color: $base-menu-active !important;
+        background-color: $base-menu-active-background !important;
       }
 
       &.is-active {
-        background-color: $base-menu-active !important;
+        background-color: $base-menu-active-background !important;
       }
     }
 
@@ -117,7 +117,7 @@ export default {
         line-height: 46px !important;
 
         &.is-active {
-          background-color: $base-menu-active !important;
+          background-color: $base-menu-active-background !important;
         }
       }
     }
@@ -129,7 +129,7 @@ export default {
         white-space: nowrap;
 
         &.is-active {
-          background-color: $base-menu-active !important;
+          background-color: $base-menu-active-background !important;
         }
       }
     }

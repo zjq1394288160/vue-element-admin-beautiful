@@ -7,7 +7,7 @@
         </el-col>
         <el-col :span="19">
           <el-menu
-            :background-color="variables.menuBg"
+            :background-color="variables.menuBackground"
             :text-color="variables.menuText"
             :active-text-color="variables.menuTextAcive"
             :default-active="activeMenu"

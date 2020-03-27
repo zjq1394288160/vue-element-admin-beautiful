@@ -10,7 +10,7 @@ module.exports = {
   storage: "localStorage", //token存储位置
   logo: false, //是否显示logo
   layout: "vertical", //横纵布局 horizontal vertical
-  layoutSwitchBar: true, //横纵切换工具是否开启
+  themeBar: true, //是否开启主题配置按钮
   tagsView: true, //是否显示多标签页
   colorWeakness: false, //色弱模式
   messageDuration: 2000, //消息框消失时间

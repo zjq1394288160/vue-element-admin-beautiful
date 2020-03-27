@@ -20,14 +20,6 @@
         <app-main />
       </byui-main>
     </div>
-    <div v-if="layoutSwitchBar" class="byui-layout-switch">
-      <el-switch
-        v-model="layoutSwitch"
-        active-text="横向布局"
-        inactive-text="纵向布局"
-        @change="handleSwitch"
-      ></el-switch>
-    </div>
     <byui-back-to-top transition-name="fade" />
   </div>
 </template>
@@ -37,7 +29,7 @@ import { AppMain, NavBar, SideBar, TagsView, TopBar } from "./components";
 import ByuiMain from "@/components/ByuiMain";
 import ByuiBackToTop from "@/components/ByuiBackToTop";
 import { mapGetters } from "vuex";
-import { layout, layoutSwitchBar, tokenName } from "@/settings";
+import { tokenName } from "@/settings";
 
 export default {
   name: "Layout",
@@ -51,28 +43,10 @@ export default {
     ByuiBackToTop,
   },
   data() {
-    return {
-      layoutSwitchBar,
-      layoutSwitch: true,
-    };
+    return {};
   },
   computed: {
     ...mapGetters(["layout", "tagsView", "collapse"]),
-  },
-  created() {
-    if (localStorage.getItem("BYUI-VUE-LAYOUT")) {
-      if (localStorage.getItem("BYUI-VUE-LAYOUT") === "vertical") {
-        this.layoutSwitch = false;
-      } else {
-        this.layoutSwitch = true;
-      }
-    } else {
-      if (layout === "vertical") {
-        this.layoutSwitch = false;
-      } else {
-        this.layoutSwitch = true;
-      }
-    }
   },
   mounted() {
     this.$nextTick(() => {
@@ -90,20 +64,10 @@ export default {
         },
         false
       );
+      this.baseColorfullLoading();
     });
   },
-  methods: {
-    handleSwitch(val) {
-      let layout = "horizontal";
-      if (true === val) {
-        layout = "horizontal";
-      } else {
-        layout = "vertical";
-      }
-      localStorage.setItem("BYUI-VUE-LAYOUT", layout);
-      this.$store.dispatch("settings/changeLayout", layout);
-    },
-  },
+  methods: {},
 };
 </script>
 

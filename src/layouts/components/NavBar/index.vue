@@ -146,10 +146,22 @@ export default {
 
     ::v-deep {
       svg {
+        width: 1em;
+        height: 1em;
         color: $base-color-gray;
         fill: $base-color-gray;
         margin-right: 15px;
         cursor: pointer;
+        font-size: $base-font-size-big;
+      }
+
+      button {
+        svg {
+          color: $base-color-white;
+          fill: $base-color-white;
+          margin-right: 0px;
+          cursor: pointer;
+        }
       }
 
       .el-badge {

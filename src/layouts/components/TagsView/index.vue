@@ -211,7 +211,7 @@ export default {
       } else {
         this.left = left;
       }
-      if ("vertical" === this.baseLayout()) {
+      if ("vertical" === this.layout) {
         this.top = e.clientY - 50;
       } else {
         this.top = e.clientY;
@@ -236,6 +236,7 @@ export default {
   position: relative;
   background: $base-color-white;
   box-sizing: border-box;
+
   .tags-view-item {
     position: relative;
     cursor: pointer;

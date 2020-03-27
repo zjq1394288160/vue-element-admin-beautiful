@@ -119,7 +119,7 @@ export default {
 
   ::v-deep {
     .el-menu-item.is-active {
-      background: $base-menu-active !important;
+      background: $base-menu-active-background !important;
     }
 
     .el-menu {

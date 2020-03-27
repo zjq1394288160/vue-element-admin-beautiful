@@ -14,7 +14,7 @@
 </p>
 ## 简介
 
-演示地址:[vue-element-admin-beautiful](https://chu1204505056.gitee.io/byui/#/login?redirect=%2F)
+演示地址:[vue-element-admin-beautiful](http://chu1204505056.gitee.io/byui/#/login?redirect=%2F)
 
 ## 官方问题解答群 972435319
 
@@ -242,7 +242,6 @@ export function getList(data) {
 
 # 开发（必看）
 
-![image](https://chu1204505056.gitee.io/byui-bookmarks/img/add.png)
 
 ## 新增 router
 
