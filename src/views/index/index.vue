@@ -1,23 +1,53 @@
 <template>
   <div class="index-container">
-    <el-alert title="欲戴王冠,必承其重" type="success"> </el-alert>
+    <el-alert title="欲戴王冠,必承其重" type="success"
+      ><a
+        target="_blank"
+        href="//shang.qq.com/wpa/qunwpa?idkey=00db5d4f8037fb577d128c2654de0bef68d32e55a41431b07a08a1d4446bb587"
+        ><img
+          border="0"
+          src="//pub.idqqimg.com/wpa/images/group.png"
+          alt="BYUI(vue-element-admin-beautif"
+          title="BYUI(vue-element-admin-beautif" /></a
+    ></el-alert>
+
     <div class="top-panel">
       <el-row :gutter="32">
         <el-col :span="6" class="top-panel1">
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project1.png" />
             <div class="txt-box">
-              <p>已产出数据总量</p>
-              <p class="num-box"><span>XXX</span>个</p>
+              <p>XXX</p>
+              <p class="num-box">
+                <span
+                  ><byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals" /></span
+                >个
+              </p>
             </div>
           </div>
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft"
-                  >已产出数据总量
+                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
+                <el-col :span="6" class="byui-alignRight">
+                  <byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals"
+                  />
+                  个
                 </el-col>
-                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -33,15 +63,37 @@
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project2.png" />
             <div class="txt-box">
-              <p>需求数量</p>
-              <p class="num-box"><span>XXX</span>个</p>
+              <p>XXX</p>
+              <p class="num-box">
+                <span>
+                  <byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals" /></span
+                >个
+              </p>
             </div>
           </div>
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft">进行中数量 </el-col>
-                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
+                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
+                <el-col :span="6" class="byui-alignRight">
+                  <byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals"
+                  />
+                  个
+                </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -57,15 +109,37 @@
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project3.png" />
             <div class="txt-box">
-              <p>团队数量</p>
-              <p class="num-box"><span>XXX</span>个</p>
+              <p>XXX</p>
+              <p class="num-box">
+                <span
+                  ><byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals" /></span
+                >个
+              </p>
             </div>
           </div>
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft">活跃团队数量 </el-col>
-                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
+                <el-col :span="18" class="byui-alignLeft">活跃团队数量</el-col>
+                <el-col :span="6" class="byui-alignRight">
+                  <byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals"
+                  />
+                  个
+                </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -81,17 +155,37 @@
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project4.png" />
             <div class="txt-box">
-              <p>执行人数</p>
-              <p class="num-box"><span>XXX</span>个</p>
+              <p>XXX</p>
+              <p class="num-box">
+                <span
+                  ><byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals" /></span
+                >个
+              </p>
             </div>
           </div>
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft"
-                  >活跃执行人员数量
+                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
+                <el-col :span="6" class="byui-alignRight">
+                  <byui-count
+                    :start-val="config1.startVal"
+                    :end-val="config1.endVal"
+                    :duration="config1.duration"
+                    :separator="config1.separator"
+                    :prefix="config1.prefix"
+                    :suffix="config1.suffix"
+                    :decimals="config1.decimals"
+                  />
+                  人
                 </el-col>
-                <el-col :span="6" class="byui-alignRight">XXX人 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
@@ -193,12 +287,12 @@ export default {
     return {
       config1: {
         startVal: 0,
-        endVal: 43,
+        endVal: 999,
         decimals: 0,
         prefix: "",
         suffix: "",
         separator: ",",
-        duration: 3000,
+        duration: 5000,
       },
       config2: {
         startVal: 0,
@@ -328,13 +422,13 @@ export default {
                   return arr[index];
                 },
                 /*color: function() {
-                                                            return `rgb(
-                                                            ${Math.round(
-                                                                Math.random() * 255
-                                                            )} , ${Math.round(
-                                                                Math.random() * 255
-                                                            )} , ${Math.round(Math.random() * 255)} )`;
-                                                        }*/
+                                                                return `rgb(
+                                                                ${Math.round(
+                                                                    Math.random() * 255
+                                                                )} , ${Math.round(
+                                                                    Math.random() * 255
+                                                                )} , ${Math.round(Math.random() * 255)} )`;
+                                                            }*/
               },
             },
             data: [
