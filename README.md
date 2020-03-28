@@ -20,6 +20,10 @@
 
 ## 付费定制 最先更新 最优方案 联系 qq 1204505056
 
+## 捐赠
+
+![image](https://chu1204505056.gitee.io/byui-bookmarks/img/donation.png)
+
 ## 目录结构
 
 本项目已经为你生成了一个完整的开发框架，提供了涵盖中后台开发的各类功能和坑位，下面是整个项目的目录结构。
@@ -73,8 +77,6 @@ cnpm i
 # 本地开发 启动项目
 npm run serve
 ```
-
-
 
 ## 浏览器支持情况
 
@@ -239,7 +241,6 @@ export function getList(data) {
 ```
 
 # 开发（必看）
-
 
 ## 新增 router
 
