@@ -13,31 +13,13 @@
 
     <div class="top-panel">
       <el-row :gutter="32">
-        <el-col :span="6" class="top-panel1">
+        <el-col :span="6" class="top-panel1 card1">
           <div class="top-panel-content byui-clearfix">
-            <img class="img-box" src="@/assets/project/project1.png" />
             <div class="txt-box">
-              <p>XXX</p>
               <p class="num-box">
+                <byui-icon :icon="['fas', 'heart']"></byui-icon>
                 <span
-                  ><byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals" /></span
-                >个
-              </p>
-            </div>
-          </div>
-          <div class="bottom-panel-content">
-            <div class="txt-box">
-              <el-row>
-                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
-                <el-col :span="6" class="byui-alignRight">
-                  <byui-count
+                  >我有 <br /><byui-count
                     :start-val="config1.startVal"
                     :end-val="config1.endVal"
                     :duration="config1.duration"
@@ -45,17 +27,9 @@
                     :prefix="config1.prefix"
                     :suffix="config1.suffix"
                     :decimals="config1.decimals"
-                  />
-                  个
-                </el-col>
-              </el-row>
-            </div>
-            <div class="progress-box">
-              <el-progress
-                :percentage="100"
-                color="#2f4bff"
-                :show-text="false"
-              ></el-progress>
+                  />个心愿</span
+                >
+              </p>
             </div>
           </div>
         </el-col>
@@ -98,7 +72,7 @@
             </div>
             <div class="progress-box">
               <el-progress
-                :percentage="100"
+                :percentage="30"
                 color="#00ce93"
                 :show-text="false"
               ></el-progress>
@@ -144,7 +118,7 @@
             </div>
             <div class="progress-box">
               <el-progress
-                :percentage="100"
+                :percentage="40"
                 color="#ffc000"
                 :show-text="false"
               ></el-progress>
@@ -190,7 +164,7 @@
             </div>
             <div class="progress-box">
               <el-progress
-                :percentage="80"
+                :percentage="60"
                 color="#08cde9"
                 :show-text="false"
               ></el-progress>
@@ -203,7 +177,7 @@
       <el-col :span="6">
         <el-card shadow="never">
           <div slot="header">
-            <span>访问量</span>
+            <svg-icon icon-class="advertising" /> <span>访问量</span>
           </div>
           <byui-chart theme="byui-echarts-theme" :options="fwl" />
           <div class="bottom">
@@ -226,7 +200,7 @@
       <el-col :span="6">
         <el-card shadow="never">
           <div slot="header">
-            <span>授权数</span>
+            <svg-icon icon-class="cable_release" /> <span>授权数</span>
           </div>
           <byui-chart theme="byui-echarts-theme" :options="sqs" />
           <div class="bottom">
@@ -247,7 +221,7 @@
       <el-col :span="12">
         <el-card shadow="never">
           <div slot="header">
-            <span>词云</span>
+            <svg-icon icon-class="heat_map" /><span>词云</span>
           </div>
           <byui-chart
             @zr:click="handleZrClick"
@@ -267,6 +241,26 @@
                 :decimals="config3.decimals"
             /></span>
           </div>
+        </el-card>
+      </el-col>
+      <el-col
+        :span="4"
+        style="
+          position: fixed;
+          bottom: 0px;
+          right: 0;
+          display: flex;
+          justify-items: center;
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+        "
+      >
+        <el-card shadow="never">
+          <div slot="header">
+            <svg-icon icon-class="heat_map" /><span>加群获取更多组件</span>
+          </div>
+          <img src="@/assets/ewm.png" />
         </el-card>
       </el-col>
     </el-row>
@@ -589,6 +583,19 @@ export default {
   }
 
   ::v-deep {
+    .el-card__header {
+      svg {
+        width: 1.2em;
+        height: 1.2em;
+        font-size: 18px;
+      }
+      span {
+        margin-left: 5px;
+        font-size: 16px;
+        color: rgb(79, 85, 110);
+        font-weight: bold;
+      }
+    }
     .el-card__body {
       height: 200px;
 
@@ -606,6 +613,31 @@ export default {
     border-top: 1px solid $base-border-color;
     text-align: left;
     color: #595959;
+  }
+  .card1 {
+    border-radius: 4px;
+    background-image: -webkit-linear-gradient(
+      -52deg,
+      rgb(90, 94, 253) 0%,
+      rgb(103, 182, 253) 100%
+    );
+    box-shadow: 0px 0px 9px 0px rgba(98, 83, 190, 0.44);
+    height: 200px;
+    padding: 50px;
+    box-sizing: border-box;
+    .txt-box {
+      width: 100% !important;
+      svg {
+        color: #ffffff;
+        font-size: 80px;
+        position: absolute;
+      }
+      .num-box span {
+        margin-left: 100px;
+        color: #ffffff !important;
+        font-size: 16px;
+      }
+    }
   }
 }
 </style>
