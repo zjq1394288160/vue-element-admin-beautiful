@@ -90,8 +90,6 @@ Modern browsers and Internet Explorer 11+.
 | --------- | --------- | --------- | --------- |
 |  IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
-
-
 # 全局配置
 
 ## setting.js 配置
