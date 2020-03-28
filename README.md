@@ -20,6 +20,8 @@
 
 ## 付费定制 最先更新 最优方案 联系 qq 1204505056
 
+## 鸣谢 花裤衩的开源项目给了我很多灵感
+
 ## 捐赠
 
 ![image](https://chu1204505056.gitee.io/byui-bookmarks/img/donation.png)
@@ -87,7 +89,7 @@ Modern browsers and Internet Explorer 11+.
 | --------- | --------- | --------- | --------- |
 |  IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 
-## 鸣谢
+
 
 # 全局配置
 
