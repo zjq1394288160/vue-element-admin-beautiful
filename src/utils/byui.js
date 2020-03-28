@@ -7,9 +7,9 @@ import { getAccessToken } from "@/utils/accessToken";
 
 const install = (Vue, opts = {}) => {
   /* 全局accessToken */
-  Vue.prototype.baseAccessToken = (() => {
+  Vue.prototype.baseAccessToken = () => {
     return store.getters.accessToken || getAccessToken();
-  })();
+  };
   /* 全局标题 */
   Vue.prototype.baseTitle = (() => {
     return title;
