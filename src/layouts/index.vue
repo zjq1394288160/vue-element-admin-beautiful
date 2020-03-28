@@ -50,12 +50,12 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      const collapse = this.$store.getters.collapse;
+      /* const collapse = this.$store.getters.collapse;
       if (document.body.clientWidth < 1366 && false === collapse) {
         this.$store.dispatch("settings/foldSideBar");
       } else if (document.body.clientWidth >= 1366 && true === collapse) {
         this.$store.dispatch("settings/openSideBar");
-      }
+      }*/
       window.addEventListener(
         "storage",
         (e) => {
