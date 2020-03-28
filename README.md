@@ -74,9 +74,7 @@ cnpm i
 npm run serve
 ```
 
-## 捐赠
 
-![image](https://chu1204505056.gitee.io/byui-bookmarks/img/donation.png)
 
 ## 浏览器支持情况
 
