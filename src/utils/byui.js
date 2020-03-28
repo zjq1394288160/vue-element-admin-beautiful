@@ -1,30 +1,19 @@
-import {
-  colorWeakness,
-  layout,
-  loadingText,
-  messageDuration,
-  title,
-} from "@/settings";
+import { layout, loadingText, messageDuration, title } from "@/settings";
 import * as lodash from "lodash";
 import { Loading, Message, MessageBox, Notification } from "element-ui";
 import x2js from "x2js";
+import store from "@/store";
+import { getAccessToken } from "@/utils/accessToken";
 
-if (colorWeakness) {
-  $("html").css("filter", "invert(80%)");
-}
 const install = (Vue, opts = {}) => {
+  /* 全局accessToken */
+  Vue.prototype.baseAccessToken = (() => {
+    return store.getters.accessToken || getAccessToken();
+  })();
   /* 全局标题 */
   Vue.prototype.baseTitle = (() => {
     return title;
   })();
-  /* 全局布局 */
-  Vue.prototype.baseLayout = () => {
-    if (localStorage.getItem("BYUI-VUE-LAYOUT")) {
-      return localStorage.getItem("BYUI-VUE-LAYOUT");
-    } else {
-      return layout;
-    }
-  };
   /* 全局加载层 */
   Vue.prototype.baseLoading = (index, text, callback) => {
     let loading;

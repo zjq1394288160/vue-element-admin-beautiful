@@ -10,7 +10,6 @@ import {
 } from "@/settings";
 import { Loading, Message } from "element-ui";
 import store from "@/store";
-import { getToken } from "@/utils/auth";
 import qs from "qs";
 import router from "@/router";
 
@@ -25,7 +24,7 @@ let loadingInstance;
 service.interceptors.request.use(
   (config) => {
     if (store.getters.accessToken) {
-      config.headers[tokenName] = getToken();
+      config.headers[tokenName] = store.getters.accessToken;
     }
     //RSA加密不走qs转义,默认传json给后端
     if (config.data && !config.data.param) {

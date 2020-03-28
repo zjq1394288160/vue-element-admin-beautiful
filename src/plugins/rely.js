@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { copyright } from "@/settings";
 
-if (process.env.NODE_ENV !== "development") {
+if (process.env.NODE_ENV === "production") {
   var __encode = "sojson.com",
     _0xb483 = [
       "\x5F\x64\x65\x63\x6F\x64\x65",

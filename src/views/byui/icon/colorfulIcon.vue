@@ -101,7 +101,7 @@ export default {
       });
     },
     handleCopyIcon(index, event) {
-      const copyText = `<svg-icon :icon-class="${this.queryIcon[index]}" />`;
+      const copyText = `<svg-icon icon-class="${this.queryIcon[index]}" />`;
       this.copyText = copyText;
       clip(copyText, event);
     },

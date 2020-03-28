@@ -33,6 +33,7 @@ export default {
     .bottom-panel {
       @include panel;
       border-top: 1px solid #dcdfe6;
+      padding-top: 14px;
     }
 
     .left-panel {

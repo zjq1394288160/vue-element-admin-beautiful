@@ -1,8 +1,9 @@
 <template>
-  <svg-icon
-    :icon-class="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"
-    @click="click"
-  />
+  <span :title="isFullscreen ? '退出全屏' : '进入全屏'">
+    <svg-icon
+      :icon-class="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"
+      @click="click"
+  /></span>
 </template>
 
 <script>

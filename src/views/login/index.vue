@@ -1,8 +1,6 @@
 <template>
   <div class="login-container">
-    <div class="login-logo-bysj">
-      <!--<img src="../../assets/login_images/logo2.png" />-->
-    </div>
+    <div class="login-logo-bysj"></div>
     <el-row>
       <el-col :span="12">
         <el-form
@@ -65,16 +63,6 @@
             @click.native.prevent="handleLogin"
             >登录
           </el-button>
-          <div class="forget-password">
-            <el-tooltip
-              class="item"
-              effect="dark"
-              content="请联系管理员"
-              placement="bottom"
-            >
-              <span class="forget-pass">忘记账号密码?</span>
-            </el-tooltip>
-          </div>
         </el-form>
       </el-col>
     </el-row>
@@ -193,7 +181,7 @@ export default {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background: url("~@/assets/login_images/bgg.png") no-repeat;
+  background: url("~@/assets/login_images/background.png") no-repeat;
   background-size: cover;
 
   .title {

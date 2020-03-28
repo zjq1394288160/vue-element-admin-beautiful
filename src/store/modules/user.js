@@ -1,11 +1,15 @@
 import { getInfo, login, logout } from "@/api/user";
-import { getToken, removeToken, setToken } from "@/utils/auth";
+import {
+  getAccessToken,
+  removeAccessToken,
+  setAccessToken,
+} from "@/utils/accessToken";
 import { Notification } from "element-ui";
 import defaultSettings from "@/settings";
 import { thirteenBitTimestamp } from "@/utils";
 
 const state = {
-  accessToken: getToken(),
+  accessToken: getAccessToken(),
   name: "",
   loginTimes: "",
   lastLoginTime: "",
@@ -37,7 +41,7 @@ const actions = {
         .then((response) => {
           const { data } = response;
           commit("SET_TOKEN", data[0].accessToken);
-          setToken(data[0].accessToken);
+          setAccessToken(data[0].accessToken);
           const time = new Date();
           const hour = time.getHours();
           const thisTime =
@@ -93,7 +97,7 @@ const actions = {
       logout(state.accessToken)
         .then(() => {
           commit("SET_TOKEN", "");
-          removeToken();
+          removeAccessToken();
           location.reload();
           resolve();
         })
@@ -105,7 +109,7 @@ const actions = {
   resetToken({ commit }) {
     return new Promise((resolve) => {
       commit("SET_TOKEN", "");
-      removeToken();
+      removeAccessToken();
       resolve();
     });
   },

@@ -75,7 +75,6 @@
 </template>
 
 <script>
-import { getToken } from "@/utils/auth";
 import { tokenName } from "@/settings";
 
 export default {
@@ -135,7 +134,7 @@ export default {
     }
 
     this.action = this.api + this.url;
-    this.headers[tokenName] = getToken();
+    this.headers[tokenName] = this.baseAccessToken();
   },
   methods: {
     submitUpload() {
@@ -225,7 +224,7 @@ export default {
       }
 
       this.action = this.api + this.url;
-      this.headers[tokenName] = getToken();
+      this.headers[tokenName] = this.baseAccessToken();
       this.dialogFormVisible = false;
     },
   },

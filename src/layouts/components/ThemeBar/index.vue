@@ -1,6 +1,10 @@
 <template>
   <span v-if="themeBar">
-    <byui-icon @click="handleChangeTheme" :icon="['fas', 'brush']" />
+    <byui-icon
+      title="主题配置"
+      @click="handleChangeTheme"
+      :icon="['fas', 'brush']"
+    />
     <el-drawer
       title="主题配置"
       :visible.sync="drawerVisible"
@@ -77,11 +81,9 @@ export default {
   computed: {
     ...mapGetters(["layout"]),
   },
-  mounted() {
-    this.drawerVisible=true;//用于演示
-  },
+  mounted() {},
   created() {
-    const theme = localStorage.getItem("BYUI-THEME");
+    const theme = localStorage.getItem("BYUI-VUE-THEME");
     this.theme.layout = this.layout;
     if (null !== theme) {
       this.$set(this.theme, "menuBackground", JSON.parse(theme).menuBackground);
@@ -103,7 +105,7 @@ export default {
       this.drawerVisible = true;
     },
     handleSaveColors() {
-      $("#BYUI-THEME").remove();
+      $("#BYUI-VUE-THEME").remove();
       let layout = this.theme.layout;
       let menuBackground = this.theme.menuBackground;
       let menuActiveBackground = this.theme.menuActiveBackground;
@@ -116,14 +118,14 @@ export default {
       .tags-view-item.router-link-exact-active.router-link-active.active{ background-color: ${tagViewsActiveBackground}; border: 1px solid ${tagViewsActiveBackground}; } `;
       document.getElementsByTagName("head").item(0).appendChild(style);
       localStorage.setItem(
-        "BYUI-THEME",
+        "BYUI-VUE-THEME",
         `{"menuBackground":"${menuBackground}","menuActiveBackground":"${menuActiveBackground}","tagViewsActiveBackground":"${tagViewsActiveBackground}"}`
       );
       this.handleSwitch(layout);
       this.drawerVisible = false;
     },
     handleSetDfaultTheme() {
-      $("#BYUI-THEME").remove();
+      $("#BYUI-VUE-THEME").remove();
       localStorage.removeItem("BYUI-VUE-THEME");
       localStorage.removeItem("BYUI-VUE-LAYOUT");
       this.$store.dispatch("settings/changeLayout", this.theme.layout);

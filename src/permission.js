@@ -2,17 +2,15 @@ import router from "./router";
 import store from "./store";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { getToken } from "@/utils/auth";
 import getPageTitle from "@/utils/pageTitle";
-import { authentication, loginInterception } from "@/settings";
+import { authentication, loginInterception, routesWhiteList } from "@/settings";
 import { Message } from "element-ui";
 
 NProgress.configure({ showSpinner: false });
-const whiteList = ["/login", "/404"];
 router.beforeEach(async (to, from, next) => {
   NProgress.start();
   document.title = getPageTitle(to.meta.title);
-  let hasToken = getToken();
+  let hasToken = store.getters.accessToken;
   if (!loginInterception) hasToken = true;
   if (hasToken) {
     if (to.path === "/login") {
@@ -42,7 +40,7 @@ router.beforeEach(async (to, from, next) => {
       }
     }
   } else {
-    if (whiteList.indexOf(to.path) !== -1) {
+    if (routesWhiteList.indexOf(to.path) !== -1) {
       next();
     } else {
       next(`/login?redirect=${to.path}`);

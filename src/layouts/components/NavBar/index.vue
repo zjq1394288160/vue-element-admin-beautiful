@@ -19,6 +19,7 @@
             <byui-screenfull></byui-screenfull>
             <theme-bar></theme-bar>
             <byui-icon
+              title="重载路由"
               @click="refreshSelectedTag"
               :pulse="pulse"
               :icon="['fas', 'redo']"
@@ -29,7 +30,11 @@
               <div slot="content">上次登录时间:{{ lastLoginTime }}</div>
               <span class="user-name">{{ name }}</span>
             </el-tooltip>
-            <byui-icon @click="logout" :icon="['fas', 'sign-out-alt']" />
+            <byui-icon
+              title="退出系统"
+              @click="logout"
+              :icon="['fas', 'sign-out-alt']"
+            />
           </div>
         </el-col>
       </el-row>
