@@ -181,7 +181,7 @@ export default {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background: url("~@/assets/login_images/background.png") no-repeat;
+  background: url("~@/assets/login_images/background2.png") no-repeat;
   background-size: cover;
 
   .title {
