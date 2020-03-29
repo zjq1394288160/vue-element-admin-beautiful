@@ -12,5 +12,6 @@ export default {
 .byui-main {
   margin-left: auto;
   margin-right: auto;
+  width: 88%;
 }
 </style>
