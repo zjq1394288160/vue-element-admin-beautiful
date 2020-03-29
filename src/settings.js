@@ -9,7 +9,7 @@ module.exports = {
   tokenName: "accessToken", //token名称
   tokenTableName: "BYUI-VUE-TABLE", //token表名
   storage: "localStorage", //token存储位置
-  logo: false, //是否显示logo
+  logo: true, //是否显示logo
   layout: "vertical", //横纵布局 horizontal vertical
   themeBar: true, //是否开启主题配置按钮
   tagsView: true, //是否显示多标签页

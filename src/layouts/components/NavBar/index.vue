@@ -1,50 +1,47 @@
 <template>
   <div class="nav-bar-container">
-    <byui-main>
-      <el-row :gutter="15">
-        <el-col :span="12">
-          <div class="left-panel">
-            <i
-              :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
-              :title="collapse ? '展开' : '收起'"
-              class="fold-unfold"
-              @click="handleCollapse"
-            ></i>
-            <breadcrumb />
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="right-panel">
-            <error-log />
-            <byui-screenfull></byui-screenfull>
-            <theme-bar></theme-bar>
-            <byui-icon
-              title="重载路由"
-              @click="refreshSelectedTag"
-              :pulse="pulse"
-              :icon="['fas', 'redo']"
-            />
+    <el-row :gutter="0">
+      <el-col :span="8">
+        <div class="left-panel">
+          <i
+            :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
+            :title="collapse ? '展开' : '收起'"
+            class="fold-unfold"
+            @click="handleCollapse"
+          ></i>
+          <breadcrumb />
+        </div>
+      </el-col>
+      <el-col :span="16">
+        <div class="right-panel">
+          <error-log />
+          <byui-screenfull></byui-screenfull>
+          <theme-bar></theme-bar>
+          <byui-icon
+            title="重载路由"
+            @click="refreshSelectedTag"
+            :pulse="pulse"
+            :icon="['fas', 'redo']"
+          />
 
-            <el-avatar icon="el-icon-user-solid"></el-avatar>
-            <el-tooltip effect="light" placement="bottom">
-              <div slot="content">上次登录时间:{{ lastLoginTime }}</div>
-              <span class="user-name">{{ name }}</span>
-            </el-tooltip>
-            <byui-icon
-              title="退出系统"
-              @click="logout"
-              :icon="['fas', 'sign-out-alt']"
-            />
-          </div>
-        </el-col>
-      </el-row>
-    </byui-main>
+          <el-avatar icon="el-icon-user-solid"></el-avatar>
+          <el-tooltip effect="light" placement="bottom">
+            <div slot="content">上次登录时间:{{ lastLoginTime }}</div>
+            <span class="user-name">{{ name }}</span>
+          </el-tooltip>
+          <byui-icon
+            title="退出系统"
+            @click="logout"
+            :icon="['fas', 'sign-out-alt']"
+          />
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import ByuiMain from "@/components/ByuiMain";
 import ErrorLog from "@/components/ErrorLog";
 import ByuiScreenfull from "@/components/ByuiScreenfull";
 import Breadcrumb from "@/layouts/components/Breadcrumb";
@@ -53,7 +50,6 @@ import ThemeBar from "@/layouts/components/ThemeBar";
 export default {
   components: {
     Breadcrumb,
-    ByuiMain,
     ErrorLog,
     ByuiScreenfull,
     ThemeBar,
@@ -112,7 +108,6 @@ export default {
 
 <style lang="scss" scoped>
 .nav-bar-container {
-  transition: all 0.3s;
   height: 50px;
   overflow: hidden;
   position: relative;
@@ -123,7 +118,8 @@ export default {
     display: flex;
     justify-items: center;
     align-items: center;
-
+    height: 50px;
+    max-height: 50px;
     .fold-unfold {
       font-size: 20px;
       color: $base-color-gray;
@@ -135,6 +131,13 @@ export default {
 
     .fold-unfold.el-icon-s-unfold {
       transition: all 0.3s;
+    }
+    ::v-deep {
+      .breadcrumb-container {
+        @media screen and (max-width: 1000px) {
+          display: none;
+        }
+      }
     }
   }
 

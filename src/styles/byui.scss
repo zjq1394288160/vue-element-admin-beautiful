@@ -163,42 +163,10 @@ html {
     /*大图展示结束*/
 
     .app-wrapper {
-      min-width: $base-main-width;
-
-      .nav-bar-container {
-        min-width: $base-main-width;
-      }
-
-      .tags-view-container {
-        min-width: $base-main-width;
-      }
-
-      .app-main-container {
-        min-width: $base-main-width;
-      }
-
       .app-main-container {
         > [class*="-container"] {
           padding: 20px;
           background: $base-color-white;
-        }
-      }
-
-      .layout-container-horizontal {
-        position: relative;
-
-        #{$base} {
-          &-main {
-            border-radius: $base-border-radius;
-            width: 88%; //1689.6px
-            @media (max-width: $base-main-width) {
-              width: 99%;
-            }
-            @media (min-width: 1921px) {
-              //2048屏幕
-              width: 82.5%;
-            }
-          }
         }
       }
     }

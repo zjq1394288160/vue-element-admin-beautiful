@@ -85,12 +85,12 @@ export const asyncRoutes = [
         component: () => import("@/views/byui/news/index"),
         meta: { title: "新闻" },
       },
-      {
+      /*{
         path: "markdown",
         name: "Markdown",
         component: () => import("@/views/byui/markdown/index"),
         meta: { title: "markdown阅读器" },
-      },
+      },*/
       {
         path: "smallComponents",
         name: "SmallComponents",
@@ -164,12 +164,12 @@ export const asyncRoutes = [
         component: () => import("@/views/byui/loading/index"),
         meta: { title: "loading" },
       },
-      {
+      /*{
         path: "player",
         name: "Player",
         component: () => import("@/views/byui/player/index"),
         meta: { title: "视频播放器", noCache: true },
-      },
+      },*/
       {
         path: "editor",
         name: "Editor",

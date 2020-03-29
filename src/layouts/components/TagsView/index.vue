@@ -230,7 +230,6 @@ export default {
 
 <style lang="scss" scoped>
 .tags-view-container {
-  transition: all 0.3s;
   height: 44px;
   width: 100%;
   position: relative;

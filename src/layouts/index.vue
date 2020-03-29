@@ -15,8 +15,10 @@
     <div v-else class="layout-container-vertical">
       <side-bar />
       <byui-main :class="collapse ? 'is-collapse-main' : ''">
-        <nav-bar />
-        <tags-view v-if="tagsView" />
+        <div class="fixed-header">
+          <nav-bar />
+          <tags-view v-if="tagsView" />
+        </div>
         <app-main />
       </byui-main>
     </div>
@@ -50,12 +52,12 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      /* const collapse = this.$store.getters.collapse;
+      const collapse = this.$store.getters.collapse;
       if (document.body.clientWidth < 1366 && false === collapse) {
         this.$store.dispatch("settings/foldSideBar");
       } else if (document.body.clientWidth >= 1366 && true === collapse) {
         this.$store.dispatch("settings/openSideBar");
-      }*/
+      }
       window.addEventListener(
         "storage",
         (e) => {
@@ -73,6 +75,11 @@ export default {
 
 <style lang="scss" scoped>
 .app-wrapper {
+  min-width: $base-main-width;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
   .layout-container-horizontal {
     ::v-deep {
       .tag-view-show {
@@ -111,27 +118,33 @@ export default {
 
     .byui-main {
       width: $base-right-content-width;
+      min-width: ($base-main-width) - ($base-left-menu-width-min);
       margin-left: $base-left-menu-width;
       background: #f6f8f9;
-      padding-top: 94px;
+      min-height: 100%;
+      transition: margin-left 0.28s;
+      position: relative;
+      padding-top: 96px;
 
       ::v-deep {
-        .nav-bar-container {
+        .fixed-header {
           position: fixed;
-          z-index: 99;
           top: 0;
-          right: 0;
           left: $base-left-menu-width;
+          right: 0;
+          z-index: 9;
           width: calc(100vw - 225px);
+          overflow: hidden;
+        }
+
+        .nav-bar-container {
+          position: relative;
+          padding-left: 5px;
         }
 
         .tags-view-container {
-          position: fixed;
-          z-index: 99;
-          top: 50px;
-          right: 0;
-          left: $base-left-menu-width;
-          width: calc(100vw - 227px);
+          position: relative;
+          padding-left: 8px;
           box-shadow: $base-box-shadow;
         }
 
@@ -146,55 +159,18 @@ export default {
       }
 
       &.is-collapse-main {
-        width: $base-right-content-width-min;
         margin-left: $base-left-menu-width-min;
-        transition: all 0.3s;
+        width: $base-right-content-width-min;
+        min-width: ($base-main-width) - ($base-left-menu-width);
 
         ::v-deep {
-          .nav-bar-container {
-            left: $base-left-menu-width-min;
+          .fixed-header {
             width: calc(100vw - 65px);
-          }
-
-          .tags-view-container {
             left: $base-left-menu-width-min;
-            width: calc(100vw - 65px);
           }
         }
       }
     }
-  }
-
-  .byui-layout-switch {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    background: $base-color-white;
-    width: 200px;
-    height: 50px;
-    vertical-align: middle;
-    padding-top: 15px;
-    border-radius: 99px;
-    border: 1px solid $base-color-blue;
-    padding-left: 15px;
-    box-shadow: $base-box-shadow;
-    z-index: 99;
-  }
-
-  .byui-layout-switch {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    background: $base-color-white;
-    width: 200px;
-    height: 50px;
-    vertical-align: middle;
-    padding-top: 15px;
-    border-radius: 99px;
-    border: 1px solid $base-color-blue;
-    padding-left: 15px;
-    box-shadow: $base-box-shadow;
-    z-index: 99;
   }
 }
 </style>
