@@ -54,6 +54,19 @@ export const asyncRoutes = [
     ],
   },
   {
+    path: "/permission",
+    component: Layout,
+    redirect: "noRedirect",
+    children: [
+      {
+        path: "permission",
+        name: "Permission",
+        component: () => import("@/views/byui/permission/index"),
+        meta: { title: "权限控制", icon: "marker" },
+      },
+    ],
+  },
+  {
     path: "/test",
     component: Layout,
     redirect: "noRedirect",
