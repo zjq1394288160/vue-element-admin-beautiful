@@ -1,9 +1,11 @@
 <template>
   <div :class="'logo-container-' + layout">
-    <byui-icon v-if="logo" class="logo" :icon="['fas', 'trophy']"></byui-icon>
-    <span class="title" :title="title">
-      {{ title }}
-    </span>
+    <router-link to="/">
+      <svg-icon v-if="logo" class="logo" icon-class="icon" />
+      <span class="title" :title="title">
+        {{ title }}
+      </span>
+    </router-link>
   </div>
 </template>
 <script>
@@ -36,7 +38,7 @@ export default {
   height: 32px;
   vertical-align: middle;
   margin-right: 5px;
-  margin-top: 3px;
+  margin-top: -3px;
   color: $base-title;
 }
 

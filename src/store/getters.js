@@ -4,6 +4,7 @@ const getters = {
   collapse: (state) => state.settings.collapse,
   cachedViews: (state) => state.tagsView.cachedViews,
   errorLogs: (state) => state.errorLog.logs,
+  header: (state) => state.settings.header,
   lastLoginTime: (state) => state.user.lastLoginTime,
   layout: (state) => state.settings.layout,
   logo: (state) => state.settings.logo,

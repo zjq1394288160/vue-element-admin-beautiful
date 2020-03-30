@@ -12,10 +12,14 @@
         <app-main />
       </byui-main>
     </div>
-    <div v-else class="layout-container-vertical">
+    <div
+      v-else
+      class="layout-container-vertical"
+      :class="header === 'fixed' ? 'fixed' : ''"
+    >
       <side-bar />
       <byui-main :class="collapse ? 'is-collapse-main' : ''">
-        <div class="fixed-header">
+        <div :class="header === 'fixed' ? 'fixed-header' : ''">
           <nav-bar />
           <tags-view v-if="tagsView" />
         </div>
@@ -48,7 +52,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["layout", "tagsView", "collapse"]),
+    ...mapGetters(["layout", "tagsView", "collapse", "header"]),
   },
   mounted() {
     this.$nextTick(() => {
@@ -103,6 +107,7 @@ export default {
       .main-padding {
         margin-top: 15px;
         margin-bottom: 15px;
+        min-width: 1200px;
 
         .app-main-container {
           transition: all 0.3s;
@@ -116,15 +121,17 @@ export default {
   .layout-container-vertical {
     position: relative;
 
+    &.fixed {
+      padding-top: 96px;
+    }
+
     .byui-main {
-      width: $base-right-content-width;
       min-width: ($base-main-width) - ($base-left-menu-width-min);
       margin-left: $base-left-menu-width;
       background: #f6f8f9;
       min-height: 100%;
       transition: margin-left 0.28s;
       position: relative;
-      padding-top: 96px;
 
       ::v-deep {
         .fixed-header {
@@ -133,7 +140,7 @@ export default {
           left: $base-left-menu-width;
           right: 0;
           z-index: 9;
-          width: calc(100vw - 225px);
+          width: $base-right-content-width;
           overflow: hidden;
         }
 
@@ -150,6 +157,7 @@ export default {
 
         .app-main-container {
           width: calc(100% - 30px);
+          min-width: 1100px;
           margin: 15px auto;
           border-radius: $base-border-radius;
           background: $base-color-white;

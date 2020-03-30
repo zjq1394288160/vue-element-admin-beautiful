@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar-container">
     <el-row :gutter="0">
-      <el-col :span="8">
+      <el-col :xs="4" :sm="10" :md="12" :lg="12" :xl="12">
         <div class="left-panel">
           <i
             :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
@@ -12,7 +12,7 @@
           <breadcrumb />
         </div>
       </el-col>
-      <el-col :span="16">
+      <el-col :xs="20" :sm="14" :md="12" :lg="12" :xl="12">
         <div class="right-panel">
           <error-log />
           <byui-screenfull></byui-screenfull>
@@ -24,7 +24,10 @@
             :icon="['fas', 'redo']"
           />
 
-          <el-avatar icon="el-icon-user-solid"></el-avatar>
+          <el-avatar
+            class="hidden-xs-only"
+            icon="el-icon-user-solid"
+          ></el-avatar>
           <el-tooltip effect="light" placement="bottom">
             <div slot="content">上次登录时间:{{ lastLoginTime }}</div>
             <span class="user-name">{{ name }}</span>

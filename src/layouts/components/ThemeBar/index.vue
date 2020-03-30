@@ -10,7 +10,7 @@
       :visible.sync="drawerVisible"
       direction="rtl"
       append-to-body
-      size="20%"
+      size="300px"
     >
       <div class="el-drawer__body">
         <el-form :model="theme" ref="form">
@@ -18,6 +18,12 @@
             <el-radio-group v-model="theme.layout">
               <el-radio-button label="vertical">纵向布局</el-radio-button>
               <el-radio-button label="horizontal">横向布局</el-radio-button>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="头部">
+            <el-radio-group v-model="theme.header">
+              <el-radio-button label="fixed">固定头部</el-radio-button>
+              <el-radio-button label="noFixed">不固定头部</el-radio-button>
             </el-radio-group>
           </el-form-item>
           <el-form-item label="菜单主题色">
@@ -51,7 +57,7 @@
           </el-form-item>
           <el-form-item>
             <el-button @click="handleSetDfaultTheme">恢复默认</el-button>
-            <el-button type="primary" @click="handleSaveColors">保存</el-button>
+            <el-button type="primary" @click="handleSaveTheme">保存</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -72,6 +78,7 @@ export default {
       drawerVisible: false,
       theme: {
         layout: "",
+        header: "",
         menuBackground: variables.menuBackground,
         menuActiveBackground: variables.menuActiveBackground,
         tagViewsActiveBackground: variables.tagViewsActiveBackground,
@@ -79,12 +86,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["layout"]),
+    ...mapGetters(["layout", "header"]),
   },
   mounted() {},
   created() {
     const theme = localStorage.getItem("BYUI-VUE-THEME");
     this.theme.layout = this.layout;
+    this.theme.header = this.header;
     if (null !== theme) {
       this.$set(this.theme, "menuBackground", JSON.parse(theme).menuBackground);
       this.$set(
@@ -97,16 +105,17 @@ export default {
         "tagViewsActiveBackground",
         JSON.parse(theme).tagViewsActiveBackground
       );
-      this.handleSaveColors();
+      this.handleSetTheme();
     }
   },
   methods: {
     handleChangeTheme() {
       this.drawerVisible = true;
     },
-    handleSaveColors() {
+    handleSetTheme() {
       $("#BYUI-VUE-THEME").remove();
       let layout = this.theme.layout;
+      let header = this.theme.header;
       let menuBackground = this.theme.menuBackground;
       let menuActiveBackground = this.theme.menuActiveBackground;
       let tagViewsActiveBackground = this.theme.tagViewsActiveBackground;
@@ -121,8 +130,13 @@ export default {
         "BYUI-VUE-THEME",
         `{"menuBackground":"${menuBackground}","menuActiveBackground":"${menuActiveBackground}","tagViewsActiveBackground":"${tagViewsActiveBackground}"}`
       );
-      this.handleSwitch(layout);
+      this.handleSwitchLayout(layout);
+      this.handleSwitchHeader(header);
       this.drawerVisible = false;
+    },
+    handleSaveTheme() {
+      this.handleSetTheme();
+      location.reload();
     },
     handleSetDfaultTheme() {
       $("#BYUI-VUE-THEME").remove();
@@ -132,11 +146,14 @@ export default {
       this.$refs["form"].resetFields();
       Object.assign(this.$data, this.$options.data());
       this.drawerVisible = false;
-      location.reload();
     },
-    handleSwitch(layout) {
+    handleSwitchLayout(layout) {
       localStorage.setItem("BYUI-VUE-LAYOUT", layout);
       this.$store.dispatch("settings/changeLayout", layout);
+    },
+    handleSwitchHeader(header) {
+      localStorage.setItem("BYUI-VUE-HEADER", header);
+      this.$store.dispatch("settings/changeHeader", header);
     },
   },
 };
