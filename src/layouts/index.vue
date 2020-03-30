@@ -1,11 +1,17 @@
 <template>
   <div class="app-wrapper">
-    <div v-if="'horizontal' === layout" class="layout-container-horizontal">
-      <top-bar />
-      <div v-if="tagsView" :class="{ 'tag-view-show': tagsView }">
-        <byui-main>
-          <tags-view />
-        </byui-main>
+    <div
+      v-if="'horizontal' === layout"
+      class="layout-container-horizontal"
+      :class="header === 'fixed' ? 'fixed' : ''"
+    >
+      <div :class="header === 'fixed' ? 'fixed-header' : ''">
+        <top-bar />
+        <div v-if="tagsView" :class="{ 'tag-view-show': tagsView }">
+          <byui-main>
+            <tags-view />
+          </byui-main>
+        </div>
       </div>
       <byui-main class="main-padding">
         <nav-bar />
@@ -85,7 +91,22 @@ export default {
   position: relative;
 
   .layout-container-horizontal {
+    position: relative;
+
+    &.fixed {
+      padding-top: 96px;
+    }
+
     ::v-deep {
+      .fixed-header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 9;
+        width: 100%;
+        overflow: hidden;
+      }
+
       .tag-view-show {
         background: $base-color-white;
         box-shadow: $base-box-shadow;

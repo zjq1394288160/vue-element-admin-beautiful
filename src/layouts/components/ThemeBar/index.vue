@@ -146,6 +146,7 @@ export default {
       this.$refs["form"].resetFields();
       Object.assign(this.$data, this.$options.data());
       this.drawerVisible = false;
+      location.reload();
     },
     handleSwitchLayout(layout) {
       localStorage.setItem("BYUI-VUE-LAYOUT", layout);
