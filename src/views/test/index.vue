@@ -33,13 +33,33 @@
           </span>
           <span>
             <el-button
-              v-if="3 !== node.level"
+              v-if="1 === node.level"
               type="text"
               size="mini"
               @click="() => append(data, node.level)"
             >
               添加子级
             </el-button>
+            <!--<el-button
+              v-if="2 === node.level"
+              type="text"
+              size="mini"
+              @click="() => append(data, node.level)"
+            >
+              添加三级
+            </el-button>-->
+            右边是后端反的<el-select
+              v-if="2 === node.level"
+              v-model="data.sjselect"
+              @change="(value, label) => append(data, node.level, value, label)"
+            >
+              <el-option
+                v-for="item in options2"
+                :key="item.value"
+                :value="item.value"
+              >
+              </el-option>
+            </el-select>
             <el-button
               v-if="1 !== node.level"
               type="text"
@@ -69,12 +89,8 @@ export default {
             id: "0",
             label: "方案0",
             select: 0,
-            children: [
-              {
-                id: "0",
-                label: "三级 0",
-              },
-            ],
+            sjselect: "",
+            children: [],
           },
         ],
       },
@@ -91,6 +107,16 @@ export default {
           label: "或",
         },
       ],
+      options2: [
+        {
+          value: "a",
+          label: "a",
+        },
+        {
+          value: "b",
+          label: "b",
+        },
+      ],
     };
   },
 
@@ -98,7 +124,8 @@ export default {
     handleGetAll() {
       console.log(JSON.stringify(this.data));
     },
-    append(data, level) {
+    append(data, level, value) {
+      debugger;
       if (1 === level) {
         id++;
         const newChild = {
@@ -114,7 +141,9 @@ export default {
       }
       if (2 === level) {
         id2++;
-        const newChild = { id: id2, label: "三级" + id2, children: [] };
+        /*在这里调用后端反的数据*/
+        const newChild = { id: id2, label: value, children: [] };
+
         if (!data.children) {
           this.$set(data, "children", []);
         }
@@ -136,6 +165,7 @@ export default {
   .el-tree-node__content {
     height: 46px;
   }
+
   .el-select {
     margin-left: 10px;
   }

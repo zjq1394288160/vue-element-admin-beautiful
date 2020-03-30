@@ -231,7 +231,7 @@ export default {
 
   .login-form {
     position: relative;
-    width: 577px;
+    width: 579px;
     max-width: 100%;
     min-width: 500px;
     background-size: 100% 100%;
