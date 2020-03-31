@@ -2,7 +2,7 @@ import defaultSettings from "@/settings";
 
 const { tagsView, logo, layout, header } = defaultSettings;
 const state = {
-  tagsView: tagsView,
+  tagsView: localStorage.getItem("BYUI-VUE-TAGS-VIEW") || tagsView,
   logo: logo,
   collapse: false,
   layout: localStorage.getItem("BYUI-VUE-LAYOUT") || layout,
@@ -17,6 +17,11 @@ const mutations = {
   CHANGE_HEADER: (state, header) => {
     if (header) {
       state.header = header;
+    }
+  },
+  CHANGE_TAGS_VIEW: (state, tagsView) => {
+    if (tagsView) {
+      state.tagsView = tagsView;
     }
   },
   CHANGE_COLLAPSE: (state) => {
@@ -35,6 +40,9 @@ const actions = {
   },
   changeHeader({ commit }, header) {
     commit("CHANGE_HEADER", header);
+  },
+  changeTagsView({ commit }, tagsView) {
+    commit("CHANGE_TAGS_VIEW", tagsView);
   },
   changeCollapse({ commit }) {
     commit("CHANGE_COLLAPSE");

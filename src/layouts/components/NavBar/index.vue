@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar-container">
     <el-row :gutter="0">
-      <el-col :xs="4" :sm="10" :md="12" :lg="12" :xl="12">
+      <el-col :span="12">
         <div class="left-panel">
           <i
             :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
@@ -12,7 +12,7 @@
           <breadcrumb />
         </div>
       </el-col>
-      <el-col :xs="20" :sm="14" :md="12" :lg="12" :xl="12">
+      <el-col :span="12">
         <div class="right-panel">
           <error-log />
           <byui-screenfull></byui-screenfull>
@@ -123,6 +123,7 @@ export default {
     align-items: center;
     height: 50px;
     max-height: 50px;
+
     .fold-unfold {
       font-size: 20px;
       color: $base-color-gray;
@@ -134,13 +135,6 @@ export default {
 
     .fold-unfold.el-icon-s-unfold {
       transition: all 0.3s;
-    }
-    ::v-deep {
-      .breadcrumb-container {
-        @media screen and (max-width: 1000px) {
-          display: none;
-        }
-      }
     }
   }
 

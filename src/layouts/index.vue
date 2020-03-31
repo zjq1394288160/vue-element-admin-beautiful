@@ -1,13 +1,19 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="classObj">
     <div
       v-if="'horizontal' === layout"
       class="layout-container-horizontal"
-      :class="header === 'fixed' ? 'fixed' : ''"
+      :class="{
+        fixed: header === 'fixed',
+        'no-tags-view': tagsView === 'false' || tagsView === false,
+      }"
     >
       <div :class="header === 'fixed' ? 'fixed-header' : ''">
         <top-bar />
-        <div v-if="tagsView" :class="{ 'tag-view-show': tagsView }">
+        <div
+          v-if="tagsView === 'true' || tagsView === true"
+          :class="{ 'tag-view-show': tagsView }"
+        >
           <byui-main>
             <tags-view />
           </byui-main>
@@ -21,13 +27,16 @@
     <div
       v-else
       class="layout-container-vertical"
-      :class="header === 'fixed' ? 'fixed' : ''"
+      :class="{
+        fixed: header === 'fixed',
+        'no-tags-view': tagsView === 'false' || tagsView === false,
+      }"
     >
       <side-bar />
       <byui-main :class="collapse ? 'is-collapse-main' : ''">
         <div :class="header === 'fixed' ? 'fixed-header' : ''">
           <nav-bar />
-          <tags-view v-if="tagsView" />
+          <tags-view v-if="tagsView === 'true' || tagsView === true" />
         </div>
         <app-main />
       </byui-main>
@@ -42,6 +51,7 @@ import ByuiMain from "@/components/ByuiMain";
 import ByuiBackToTop from "@/components/ByuiBackToTop";
 import { mapGetters } from "vuex";
 import { tokenName } from "@/settings";
+import ResizeMixin from "./mixin/ResizeHandler";
 
 export default {
   name: "Layout",
@@ -57,17 +67,17 @@ export default {
   data() {
     return {};
   },
+  mixins: [ResizeMixin],
   computed: {
-    ...mapGetters(["layout", "tagsView", "collapse", "header"]),
+    ...mapGetters(["layout", "tagsView", "collapse", "header", "device"]),
+    classObj() {
+      return {
+        mobile: this.device === "mobile",
+      };
+    },
   },
   mounted() {
     this.$nextTick(() => {
-      const collapse = this.$store.getters.collapse;
-      if (document.body.clientWidth < 1366 && false === collapse) {
-        this.$store.dispatch("settings/foldSideBar");
-      } else if (document.body.clientWidth >= 1366 && true === collapse) {
-        this.$store.dispatch("settings/openSideBar");
-      }
       window.addEventListener(
         "storage",
         (e) => {
@@ -90,11 +100,24 @@ export default {
   height: 100%;
   position: relative;
 
+  &.mobile {
+    ::v-deep {
+      .fold-unfold {
+        display: none;
+      }
+    }
+  }
+
   .layout-container-horizontal {
     position: relative;
+    min-width: $base-main-width;
 
     &.fixed {
       padding-top: 96px;
+    }
+
+    &.fixed.no-tags-view {
+      padding-top: 56px;
     }
 
     ::v-deep {
@@ -128,7 +151,6 @@ export default {
       .main-padding {
         margin-top: 15px;
         margin-bottom: 15px;
-        min-width: 1200px;
 
         .app-main-container {
           transition: all 0.3s;
@@ -144,6 +166,10 @@ export default {
 
     &.fixed {
       padding-top: 96px;
+    }
+
+    &.fixed.no-tags-view {
+      padding-top: 56px;
     }
 
     .byui-main {
@@ -174,12 +200,12 @@ export default {
           position: relative;
           padding-left: 8px;
           box-shadow: $base-box-shadow;
+          width: 100%;
         }
 
         .app-main-container {
-          width: calc(100% - 30px);
-          min-width: 1100px;
           margin: 15px auto;
+          width: calc(100% - 30px);
           border-radius: $base-border-radius;
           background: $base-color-white;
           min-height: calc(100vh - 127px);
@@ -190,7 +216,6 @@ export default {
       &.is-collapse-main {
         margin-left: $base-left-menu-width-min;
         width: $base-right-content-width-min;
-        min-width: ($base-main-width) - ($base-left-menu-width);
 
         ::v-deep {
           .fixed-header {

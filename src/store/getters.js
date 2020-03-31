@@ -1,4 +1,5 @@
 const getters = {
+  device: (state) => state.app.device,
   accessToken: (state) => state.user.accessToken,
   avatar: (state) => state.user.avatar,
   collapse: (state) => state.settings.collapse,

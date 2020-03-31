@@ -36,7 +36,7 @@ export default {
         let width = element.offsetWidth;
         let height = element.offsetHeight;
         this.$nextTick(() => {
-          that.width = width;
+          that.width = width - 10;
         });
       }
     );

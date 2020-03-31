@@ -1,35 +1,31 @@
 <template>
   <div class="index-container">
-    <el-alert title="欲戴王冠,必承其重" type="success"
-      ><a
-        target="_blank"
-        href="//shang.qq.com/wpa/qunwpa?idkey=00db5d4f8037fb577d128c2654de0bef68d32e55a41431b07a08a1d4446bb587"
-        ><img
-          border="0"
-          src="//pub.idqqimg.com/wpa/images/group.png"
-          alt="BYUI(vue-element-admin-beautif"
-          title="BYUI(vue-element-admin-beautif" /></a
-    ></el-alert>
-
+    <el-alert title="欲戴王冠,必承其重" type="success"> </el-alert>
     <div class="top-panel">
       <el-row :gutter="32">
-        <el-col :span="6" class="top-panel1 card1">
+        <el-col :span="6" class="top-panel1">
           <div class="top-panel-content byui-clearfix">
+            <img class="img-box" src="@/assets/project/project1.png" />
             <div class="txt-box">
-              <p class="num-box">
-                <byui-icon :icon="['fas', 'heart']"></byui-icon>
-                <span
-                  >我有 <br /><byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />个心愿</span
-                >
-              </p>
+              <p>已产出数据总量</p>
+              <p class="num-box"><span>XXX</span>个</p>
+            </div>
+          </div>
+          <div class="bottom-panel-content">
+            <div class="txt-box">
+              <el-row>
+                <el-col :span="18" class="byui-alignLeft"
+                  >已产出数据总量
+                </el-col>
+                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
+              </el-row>
+            </div>
+            <div class="progress-box">
+              <el-progress
+                :percentage="100"
+                color="#2f4bff"
+                :show-text="false"
+              ></el-progress>
             </div>
           </div>
         </el-col>
@@ -37,42 +33,20 @@
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project2.png" />
             <div class="txt-box">
-              <p>XXX</p>
-              <p class="num-box">
-                <span>
-                  <byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals" /></span
-                >个
-              </p>
+              <p>需求数量</p>
+              <p class="num-box"><span>XXX</span>个</p>
             </div>
           </div>
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
-                <el-col :span="6" class="byui-alignRight">
-                  <byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />
-                  个
-                </el-col>
+                <el-col :span="18" class="byui-alignLeft">进行中数量 </el-col>
+                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
               <el-progress
-                :percentage="30"
+                :percentage="100"
                 color="#00ce93"
                 :show-text="false"
               ></el-progress>
@@ -83,42 +57,20 @@
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project3.png" />
             <div class="txt-box">
-              <p>XXX</p>
-              <p class="num-box">
-                <span
-                  ><byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals" /></span
-                >个
-              </p>
+              <p>团队数量</p>
+              <p class="num-box"><span>XXX</span>个</p>
             </div>
           </div>
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft">活跃团队数量</el-col>
-                <el-col :span="6" class="byui-alignRight">
-                  <byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />
-                  个
-                </el-col>
+                <el-col :span="18" class="byui-alignLeft">活跃团队数量 </el-col>
+                <el-col :span="6" class="byui-alignRight">XXX个 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
               <el-progress
-                :percentage="40"
+                :percentage="100"
                 color="#ffc000"
                 :show-text="false"
               ></el-progress>
@@ -129,42 +81,22 @@
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project4.png" />
             <div class="txt-box">
-              <p>XXX</p>
-              <p class="num-box">
-                <span
-                  ><byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals" /></span
-                >个
-              </p>
+              <p>执行人数</p>
+              <p class="num-box"><span>XXX</span>个</p>
             </div>
           </div>
           <div class="bottom-panel-content">
             <div class="txt-box">
               <el-row>
-                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
-                <el-col :span="6" class="byui-alignRight">
-                  <byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />
-                  人
+                <el-col :span="18" class="byui-alignLeft"
+                  >活跃执行人员数量
                 </el-col>
+                <el-col :span="6" class="byui-alignRight">XXX人 </el-col>
               </el-row>
             </div>
             <div class="progress-box">
               <el-progress
-                :percentage="60"
+                :percentage="80"
                 color="#08cde9"
                 :show-text="false"
               ></el-progress>
@@ -177,7 +109,7 @@
       <el-col :span="6">
         <el-card shadow="never">
           <div slot="header">
-            <svg-icon icon-class="advertising" /> <span>访问量</span>
+            <span>访问量</span>
           </div>
           <byui-chart theme="byui-echarts-theme" :options="fwl" />
           <div class="bottom">
@@ -200,7 +132,7 @@
       <el-col :span="6">
         <el-card shadow="never">
           <div slot="header">
-            <svg-icon icon-class="cable_release" /> <span>授权数</span>
+            <span>授权数</span>
           </div>
           <byui-chart theme="byui-echarts-theme" :options="sqs" />
           <div class="bottom">
@@ -221,7 +153,7 @@
       <el-col :span="12">
         <el-card shadow="never">
           <div slot="header">
-            <svg-icon icon-class="heat_map" /><span>词云</span>
+            <span>词云</span>
           </div>
           <byui-chart
             @zr:click="handleZrClick"
@@ -243,26 +175,6 @@
           </div>
         </el-card>
       </el-col>
-      <el-col
-        :span="4"
-        style="
-          position: fixed;
-          bottom: 0px;
-          right: 0;
-          display: flex;
-          justify-items: center;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
-        "
-      >
-        <el-card shadow="never">
-          <div slot="header">
-            <svg-icon icon-class="heat_map" /><span>加群获取更多组件</span>
-          </div>
-          <img src="@/assets/ewm.png" />
-        </el-card>
-      </el-col>
     </el-row>
   </div>
 </template>
@@ -281,12 +193,12 @@ export default {
     return {
       config1: {
         startVal: 0,
-        endVal: 999,
+        endVal: 43,
         decimals: 0,
         prefix: "",
         suffix: "",
         separator: ",",
-        duration: 5000,
+        duration: 3000,
       },
       config2: {
         startVal: 0,
@@ -416,13 +328,13 @@ export default {
                   return arr[index];
                 },
                 /*color: function() {
-                                                                return `rgb(
-                                                                ${Math.round(
-                                                                    Math.random() * 255
-                                                                )} , ${Math.round(
-                                                                    Math.random() * 255
-                                                                )} , ${Math.round(Math.random() * 255)} )`;
-                                                            }*/
+                                                            return `rgb(
+                                                            ${Math.round(
+                                                                Math.random() * 255
+                                                            )} , ${Math.round(
+                                                                Math.random() * 255
+                                                            )} , ${Math.round(Math.random() * 255)} )`;
+                                                        }*/
               },
             },
             data: [
@@ -458,6 +370,10 @@ export default {
               {
                 name: "国家主权",
                 value: 3000,
+              },
+              {
+                name: "武装颠覆",
+                value: 2500,
               },
               {
                 name: "领土完整",
@@ -583,19 +499,6 @@ export default {
   }
 
   ::v-deep {
-    .el-card__header {
-      svg {
-        width: 1.2em;
-        height: 1.2em;
-        font-size: 18px;
-      }
-      span {
-        margin-left: 5px;
-        font-size: 16px;
-        color: rgb(79, 85, 110);
-        font-weight: bold;
-      }
-    }
     .el-card__body {
       height: 200px;
 
@@ -613,31 +516,6 @@ export default {
     border-top: 1px solid $base-border-color;
     text-align: left;
     color: #595959;
-  }
-  .card1 {
-    border-radius: 4px;
-    background-image: -webkit-linear-gradient(
-      -52deg,
-      rgb(90, 94, 253) 0%,
-      rgb(103, 182, 253) 100%
-    );
-    box-shadow: 0px 0px 9px 0px rgba(98, 83, 190, 0.44);
-    height: 200px;
-    padding: 50px;
-    box-sizing: border-box;
-    .txt-box {
-      width: 100% !important;
-      svg {
-        color: #ffffff;
-        font-size: 80px;
-        position: absolute;
-      }
-      .num-box span {
-        margin-left: 100px;
-        color: #ffffff !important;
-        font-size: 16px;
-      }
-    }
   }
 }
 </style>

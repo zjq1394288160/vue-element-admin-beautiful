@@ -1,7 +1,7 @@
 <template>
   <div :class="'logo-container-' + layout">
     <router-link to="/">
-      <svg-icon v-if="logo" class="logo" icon-class="icon" />
+      <svg-icon class="logo" icon-class="icon" />
       <span class="title" :title="title">
         {{ title }}
       </span>

@@ -26,6 +26,12 @@
               <el-radio-button label="noFixed">不固定头部</el-radio-button>
             </el-radio-group>
           </el-form-item>
+          <el-form-item label="多标签">
+            <el-radio-group v-model="theme.tagsView">
+              <el-radio-button label="true">开启</el-radio-button>
+              <el-radio-button label="false">不开启</el-radio-button>
+            </el-radio-group>
+          </el-form-item>
           <el-form-item label="菜单主题色">
             <el-color-picker
               :predefine="[
@@ -79,6 +85,7 @@ export default {
       theme: {
         layout: "",
         header: "",
+        tagsView: "",
         menuBackground: variables.menuBackground,
         menuActiveBackground: variables.menuActiveBackground,
         tagViewsActiveBackground: variables.tagViewsActiveBackground,
@@ -86,13 +93,14 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["layout", "header"]),
+    ...mapGetters(["layout", "header", "tagsView"]),
   },
   mounted() {},
   created() {
     const theme = localStorage.getItem("BYUI-VUE-THEME");
     this.theme.layout = this.layout;
     this.theme.header = this.header;
+    this.theme.tagsView = this.tagsView;
     if (null !== theme) {
       this.$set(this.theme, "menuBackground", JSON.parse(theme).menuBackground);
       this.$set(
@@ -116,6 +124,7 @@ export default {
       $("#BYUI-VUE-THEME").remove();
       let layout = this.theme.layout;
       let header = this.theme.header;
+      let tagsView = this.theme.tagsView;
       let menuBackground = this.theme.menuBackground;
       let menuActiveBackground = this.theme.menuActiveBackground;
       let tagViewsActiveBackground = this.theme.tagViewsActiveBackground;
@@ -132,6 +141,7 @@ export default {
       );
       this.handleSwitchLayout(layout);
       this.handleSwitchHeader(header);
+      this.handleSwitchTagsView(tagsView);
       this.drawerVisible = false;
     },
     handleSaveTheme() {
@@ -142,6 +152,7 @@ export default {
       $("#BYUI-VUE-THEME").remove();
       localStorage.removeItem("BYUI-VUE-THEME");
       localStorage.removeItem("BYUI-VUE-LAYOUT");
+      localStorage.removeItem("BYUI-VUE-TAGS-VIEW");
       this.$store.dispatch("settings/changeLayout", this.theme.layout);
       this.$refs["form"].resetFields();
       Object.assign(this.$data, this.$options.data());
@@ -155,6 +166,10 @@ export default {
     handleSwitchHeader(header) {
       localStorage.setItem("BYUI-VUE-HEADER", header);
       this.$store.dispatch("settings/changeHeader", header);
+    },
+    handleSwitchTagsView(tagsView) {
+      localStorage.setItem("BYUI-VUE-TAGS-VIEW", tagsView);
+      this.$store.dispatch("settings/changeTagsView", tagsView);
     },
   },
 };

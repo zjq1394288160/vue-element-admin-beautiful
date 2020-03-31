@@ -91,7 +91,7 @@ if (process.env.NODE_ENV === "production") {
 }
 if (process.env.NODE_ENV !== "development") {
   console.log(
-    "\n %c " + copyright + "  %c 博云前端敏捷开发平台2.2 \n\n",
+    "\n %c " + copyright + "  %c 博云前端敏捷开发平台2.3 \n\n",
     "color: #fadfa3; background: #030307; padding:5px 0;",
     "background: #fadfa3; padding:5px 0;"
   );

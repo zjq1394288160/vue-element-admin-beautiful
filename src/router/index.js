@@ -54,19 +54,6 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: "/permission",
-    component: Layout,
-    redirect: "noRedirect",
-    children: [
-      {
-        path: "permission",
-        name: "Permission",
-        component: () => import("@/views/byui/permission/index"),
-        meta: { title: "权限控制", icon: "marker" },
-      },
-    ],
-  },
-  {
     path: "/test",
     component: Layout,
     redirect: "noRedirect",
@@ -76,6 +63,19 @@ export const asyncRoutes = [
         name: "Test",
         component: () => import("@/views/test/index"),
         meta: { title: "test", icon: "marker" },
+      },
+    ],
+  },
+  {
+    path: "/permission",
+    component: Layout,
+    redirect: "noRedirect",
+    children: [
+      {
+        path: "permission",
+        name: "Permission",
+        component: () => import("@/views/byui/permission/index"),
+        meta: { title: "权限控制", icon: "marker" },
       },
     ],
   },
@@ -92,18 +92,18 @@ export const asyncRoutes = [
         component: () => import("@/views/byui/codeGenerator/index"),
         meta: { title: "代码生成机" },
       },
-      /*{
+      {
         path: "news",
         name: "News",
         component: () => import("@/views/byui/news/index"),
         meta: { title: "新闻" },
-      },*/
-      /*{
+      },
+      {
         path: "markdown",
         name: "Markdown",
         component: () => import("@/views/byui/markdown/index"),
         meta: { title: "markdown阅读器" },
-      },*/
+      },
       {
         path: "smallComponents",
         name: "SmallComponents",
@@ -177,12 +177,12 @@ export const asyncRoutes = [
         component: () => import("@/views/byui/loading/index"),
         meta: { title: "loading" },
       },
-      /*{
+      {
         path: "player",
         name: "Player",
         component: () => import("@/views/byui/player/index"),
         meta: { title: "视频播放器", noCache: true },
-      },*/
+      },
       {
         path: "editor",
         name: "Editor",
