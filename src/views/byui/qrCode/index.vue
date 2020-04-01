@@ -1,7 +1,7 @@
 <template>
   <div class="qr-code-container">
     <el-row :gutter="15">
-      <el-col :span="4">
+      <el-col :span="6">
         <el-card shadow="hover">
           <div slot="header"><span>二维码示例</span></div>
           <a target="_blank" :href="url">
