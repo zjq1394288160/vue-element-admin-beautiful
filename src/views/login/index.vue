@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-logo-bysj"></div>
     <el-row>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
         <el-form
           ref="loginForm"
           :model="loginForm"
@@ -231,14 +231,10 @@ export default {
 
   .login-form {
     position: relative;
-    width: 579px;
     max-width: 100%;
-    min-width: 500px;
     background-size: 100% 100%;
-    padding: 60px 40px 50px 40px;
     overflow: hidden;
-    margin-top: 200px;
-    margin-left: 200px;
+    margin: 30vh 120px 120px;
 
     .forget-password {
       width: 100%;
