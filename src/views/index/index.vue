@@ -12,8 +12,15 @@
     ></el-alert>
 
     <div class="top-panel">
-      <el-row :gutter="32">
-        <el-col :span="6" class="top-panel1 card1">
+      <el-row :gutter="15">
+        <el-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="6"
+          :xl="6"
+          class="top-panel1 card1"
+        >
           <div class="top-panel-content byui-clearfix">
             <div class="txt-box">
               <p class="num-box">
@@ -33,7 +40,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="6" class="top-panel2">
+        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6" class="top-panel2">
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project2.png" />
             <div class="txt-box">
@@ -79,7 +86,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="6" class="top-panel3">
+        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6" class="top-panel3">
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project3.png" />
             <div class="txt-box">
@@ -125,7 +132,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="6" class="top-panel4">
+        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6" class="top-panel4">
           <div class="top-panel-content byui-clearfix">
             <img class="img-box" src="@/assets/project/project4.png" />
             <div class="txt-box">
@@ -174,7 +181,7 @@
       </el-row>
     </div>
     <el-row :gutter="15">
-      <el-col :span="6">
+      <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
         <el-card shadow="never">
           <div slot="header">
             <svg-icon icon-class="advertising" /> <span>访问量</span>
@@ -197,7 +204,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="6">
+      <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
         <el-card shadow="never">
           <div slot="header">
             <svg-icon icon-class="cable_release" /> <span>授权数</span>
@@ -218,7 +225,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
         <el-card shadow="never">
           <div slot="header">
             <svg-icon icon-class="heat_map" /><span>词云</span>
@@ -243,8 +250,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col
-        :span="4"
+      <div
         style="
           position: fixed;
           bottom: 0px;
@@ -263,9 +269,9 @@
           </div>
           <img src="@/assets/ewm.png" />
         </el-card>
-      </el-col>
-      <el-col
-        :span="4"
+      </div>
+      <div
+        class="hidden-xs-only"
         style="
           width: 400px;
           position: fixed;
@@ -284,7 +290,7 @@
           </div>
           <img style="width: 140px;" src="@/assets/ewm2.jpg" />
         </el-card>
-      </el-col>
+      </div>
     </el-row>
   </div>
 </template>
@@ -561,7 +567,7 @@ export default {
 
     .top-panel-content {
       margin-bottom: 34px;
-
+      padding: 20px;
       .img-box {
         width: 80px;
         height: 80px;

@@ -1,6 +1,6 @@
 <template>
   <div class="code-generator-container">
-    <el-row :gutter="20">
+    <el-row :gutter="15">
       <el-col :span="5">
         <TableEditor @change="setTableData" />
       </el-col>

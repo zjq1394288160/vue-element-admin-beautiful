@@ -99,7 +99,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "express": "^4.17.1",
     "filemanager-webpack-plugin": "^2.0.5",
-    "html-webpack-plugin": "^4.0.3",
+    "html-webpack-plugin": "^4.0.4",
     "husky": "^4.2.3",
     "image-webpack-loader": "^6.0.0",
     "lint-staged": "^10.1.1",

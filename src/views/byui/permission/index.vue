@@ -26,7 +26,7 @@
       all模式,路由以及view文件引入全部交给后端
     </el-divider>
     <p>
-      settings.js配置authentication为all即可完全交由后端控制,mock中有后端接口示例
+      settings.js配置authentication为all即可完全交由后端控制,mock中有后端接口示例,权限繁琐,有几十种权限的项目直接用这种
     </p>
   </div>
 </template>

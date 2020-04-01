@@ -1,7 +1,7 @@
 <template>
   <div class="echarts-container">
     <el-row :gutter="15">
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="8">
         <el-card shadow="hover">
           <div slot="header">柱状图</div>
           <div>
@@ -9,7 +9,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="8">
         <el-card shadow="hover">
           <div slot="header">
             柱状图-竖形(适合横坐标文字过长的情况)
@@ -20,7 +20,7 @@
         </el-card>
       </el-col>
 
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="8">
         <el-card shadow="hover">
           <div slot="header">环形图</div>
           <div>
@@ -28,7 +28,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="8">
         <el-card shadow="hover">
           <div slot="header">折线图</div>
           <div>
@@ -36,7 +36,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="8">
         <el-card shadow="hover">
           <div slot="header">饼图</div>
           <div>
@@ -342,7 +342,7 @@ export default {
           {
             type: "pie",
             /* radius: '55%',
-                                center: ['50%', '50%'], */
+                                  center: ['50%', '50%'], */
             radius: [30, 110],
             center: ["50%", "50%"],
             selectedMode: "single",

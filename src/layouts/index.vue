@@ -95,7 +95,6 @@ export default {
 
 <style lang="scss" scoped>
 .app-wrapper {
-  min-width: $base-main-width;
   width: 100%;
   height: 100%;
   position: relative;
@@ -110,7 +109,6 @@ export default {
 
   .layout-container-horizontal {
     position: relative;
-    min-width: $base-main-width;
 
     &.fixed {
       padding-top: 96px;
@@ -121,6 +119,9 @@ export default {
     }
 
     ::v-deep {
+      .byui-main {
+        width: 88%;
+      }
       .fixed-header {
         position: fixed;
         top: 0;
@@ -173,7 +174,6 @@ export default {
     }
 
     .byui-main {
-      min-width: ($base-main-width) - ($base-left-menu-width-min);
       margin-left: $base-left-menu-width;
       background: #f6f8f9;
       min-height: 100%;
