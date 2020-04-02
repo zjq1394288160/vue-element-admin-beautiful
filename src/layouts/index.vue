@@ -144,14 +144,8 @@ export default {
       }
 
       .nav-bar-container {
-        .byui-main {
-          width: 98%;
-
-          ::v-deep {
-            .fold-unfold {
-              display: none;
-            }
-          }
+        .fold-unfold {
+          display: none;
         }
       }
 
@@ -172,12 +166,13 @@ export default {
 
     .drawer-bg {
       background: #000;
-      opacity: 0.3;
-      width: 100%;
+      opacity: 0.5;
+      width: 100vw;
       top: 0;
-      height: 100%;
+      height: 100vh;
       position: fixed;
       z-index: 98;
+      overflow: hidden;
     }
 
     &.fixed {

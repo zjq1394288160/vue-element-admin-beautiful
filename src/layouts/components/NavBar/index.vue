@@ -1,6 +1,6 @@
 <template>
   <div class="nav-bar-container">
-    <el-row :gutter="0">
+    <el-row :gutter="15">
       <el-col :xs="4" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="left-panel">
           <i
@@ -129,11 +129,16 @@ export default {
       color: $base-color-gray;
       cursor: pointer;
       transition: all 0.3s;
-      margin: 10px;
+      margin-left: 10px;
     }
 
     .fold-unfold.el-icon-s-unfold {
       transition: all 0.3s;
+    }
+    ::v-deep {
+      .breadcrumb-container {
+        margin-left: 10px;
+      }
     }
   }
 
