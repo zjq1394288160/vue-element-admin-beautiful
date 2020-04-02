@@ -236,8 +236,6 @@ export default {
   &.mobile {
     ::v-deep {
       .byui-main {
-        margin-left: 0 !important;
-
         ::v-deep {
           .fixed-header {
             left: 0 !important;
