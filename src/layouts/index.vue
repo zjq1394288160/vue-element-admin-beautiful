@@ -32,6 +32,11 @@
         'no-tags-view': tagsView === 'false' || tagsView === false,
       }"
     >
+      <div
+        v-if="device === 'mobile' && collapse === false"
+        class="drawer-bg"
+        @click="handleClickOutside"
+      />
       <side-bar />
       <byui-main :class="collapse ? 'is-collapse-main' : ''">
         <div :class="header === 'fixed' ? 'fixed-header' : ''">
@@ -89,7 +94,11 @@ export default {
       this.baseColorfullLoading();
     });
   },
-  methods: {},
+  methods: {
+    handleClickOutside() {
+      this.$store.dispatch("settings/foldSideBar");
+    },
+  },
 };
 </script>
 
@@ -137,6 +146,7 @@ export default {
       .nav-bar-container {
         .byui-main {
           width: 98%;
+
           ::v-deep {
             .fold-unfold {
               display: none;
@@ -159,6 +169,16 @@ export default {
 
   .layout-container-vertical {
     position: relative;
+
+    .drawer-bg {
+      background: #000;
+      opacity: 0.3;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      position: fixed;
+      z-index: 98;
+    }
 
     &.fixed {
       padding-top: 96px;

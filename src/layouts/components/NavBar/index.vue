@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar-container">
     <el-row :gutter="0">
-      <el-col :span="12">
+      <el-col :xs="4" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="left-panel">
           <i
             :class="collapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
@@ -9,10 +9,10 @@
             class="fold-unfold"
             @click="handleCollapse"
           ></i>
-          <breadcrumb />
+          <breadcrumb class="hidden-xs-only" />
         </div>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="right-panel">
           <error-log />
           <byui-screenfull></byui-screenfull>
@@ -129,7 +129,6 @@ export default {
       color: $base-color-gray;
       cursor: pointer;
       transition: all 0.3s;
-      z-index: 999;
       margin: 10px;
     }
 
