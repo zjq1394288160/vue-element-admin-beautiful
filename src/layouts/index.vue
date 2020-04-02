@@ -94,18 +94,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin fix-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  width: 100%;
+  overflow: hidden;
+}
+
 .app-wrapper {
   width: 100%;
   height: 100%;
   position: relative;
-
-  &.mobile {
-    ::v-deep {
-      .fold-unfold {
-        display: none;
-      }
-    }
-  }
 
   .layout-container-horizontal {
     position: relative;
@@ -122,29 +124,23 @@ export default {
       .byui-main {
         width: 88%;
       }
+
       .fixed-header {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 9;
-        width: 100%;
-        overflow: hidden;
+        @include fix-header;
       }
 
       .tag-view-show {
         background: $base-color-white;
         box-shadow: $base-box-shadow;
-        transition: all 0.3s;
       }
 
       .nav-bar-container {
-        transition: all 0.3s;
-
         .byui-main {
           width: 98%;
-
-          .fold-unfold {
-            display: none;
+          ::v-deep {
+            .fold-unfold {
+              display: none;
+            }
           }
         }
       }
@@ -154,7 +150,6 @@ export default {
         margin-bottom: 15px;
 
         .app-main-container {
-          transition: all 0.3s;
           background: $base-color-white;
           min-height: calc(100vh - 180px);
         }
@@ -182,13 +177,9 @@ export default {
 
       ::v-deep {
         .fixed-header {
-          position: fixed;
-          top: 0;
+          @include fix-header;
           left: $base-left-menu-width;
-          right: 0;
-          z-index: 9;
           width: $base-right-content-width;
-          overflow: hidden;
         }
 
         .nav-bar-container {
@@ -215,7 +206,6 @@ export default {
 
       &.is-collapse-main {
         margin-left: $base-left-menu-width-min;
-        width: $base-right-content-width-min;
 
         ::v-deep {
           .fixed-header {
@@ -226,5 +216,38 @@ export default {
       }
     }
   }
+
+  /*手机端开始*/
+  &.mobile {
+    ::v-deep {
+      .byui-main {
+        margin-left: 0 !important;
+
+        ::v-deep {
+          .fixed-header {
+            left: 0 !important;
+            width: 100% !important;
+          }
+
+          .app-main-container {
+            width: calc(100% - 30px) !important;
+          }
+        }
+
+        &.is-collapse-main {
+          margin-left: $base-left-menu-width-min !important;
+
+          ::v-deep {
+            .fixed-header {
+              width: 100% !important;
+              left: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*手机端结束*/
 }
 </style>
