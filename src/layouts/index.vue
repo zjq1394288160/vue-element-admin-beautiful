@@ -235,6 +235,17 @@ export default {
   /*手机端开始*/
   &.mobile {
     ::v-deep {
+      .el-pager,
+      .el-pagination__jump {
+        display: none;
+      }
+
+      .layout-container-vertical {
+        .byui-main {
+          margin-left: 0 !important;
+        }
+      }
+
       .byui-main {
         ::v-deep {
           .fixed-header {
