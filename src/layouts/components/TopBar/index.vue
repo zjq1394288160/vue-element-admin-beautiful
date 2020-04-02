@@ -75,8 +75,8 @@ export default {
 
       .el-menu {
         &--horizontal {
-          border-bottom: solid 0 transparent !important;
           float: right;
+          border-bottom: solid 0 transparent !important;
         }
 
         > .top-bar-item-container {
