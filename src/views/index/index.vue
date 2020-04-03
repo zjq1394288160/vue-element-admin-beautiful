@@ -13,30 +13,25 @@
 
     <div class="top-panel">
       <el-row :gutter="15">
-        <el-col
-          :xs="24"
-          :sm="24"
-          :md="12"
-          :lg="6"
-          :xl="6"
-          class="top-panel1 card1"
-        >
-          <div class="top-panel-content byui-clearfix">
-            <div class="txt-box">
-              <p class="num-box">
-                <byui-icon :icon="['fas', 'heart']"></byui-icon>
-                <span
-                  >我有 <br /><byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />个心愿</span
-                >
-              </p>
+        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6" class="top-panel1">
+          <div class="card1">
+            <div class="top-panel-content byui-clearfix">
+              <div class="txt-box">
+                <p class="num-box">
+                  <byui-icon :icon="['fas', 'heart']"></byui-icon>
+                  <span
+                    >我有 <br /><byui-count
+                      :start-val="config1.startVal"
+                      :end-val="config1.endVal"
+                      :duration="config1.duration"
+                      :separator="config1.separator"
+                      :prefix="config1.prefix"
+                      :suffix="config1.suffix"
+                      :decimals="config1.decimals"
+                    />个心愿</span
+                  >
+                </p>
+              </div>
             </div>
           </div>
         </el-col>
@@ -59,32 +54,6 @@
               </p>
             </div>
           </div>
-          <div class="bottom-panel-content">
-            <div class="txt-box">
-              <el-row>
-                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
-                <el-col :span="6" class="byui-alignRight">
-                  <byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />
-                  个
-                </el-col>
-              </el-row>
-            </div>
-            <div class="progress-box">
-              <el-progress
-                :percentage="30"
-                color="#00ce93"
-                :show-text="false"
-              ></el-progress>
-            </div>
-          </div>
         </el-col>
         <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6" class="top-panel3">
           <div class="top-panel-content byui-clearfix">
@@ -103,32 +72,6 @@
                     :decimals="config1.decimals" /></span
                 >个
               </p>
-            </div>
-          </div>
-          <div class="bottom-panel-content">
-            <div class="txt-box">
-              <el-row>
-                <el-col :span="18" class="byui-alignLeft">活跃团队数量</el-col>
-                <el-col :span="6" class="byui-alignRight">
-                  <byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />
-                  个
-                </el-col>
-              </el-row>
-            </div>
-            <div class="progress-box">
-              <el-progress
-                :percentage="40"
-                color="#ffc000"
-                :show-text="false"
-              ></el-progress>
             </div>
           </div>
         </el-col>
@@ -151,147 +94,120 @@
               </p>
             </div>
           </div>
-          <div class="bottom-panel-content">
-            <div class="txt-box">
-              <el-row>
-                <el-col :span="18" class="byui-alignLeft">XXX</el-col>
-                <el-col :span="6" class="byui-alignRight">
-                  <byui-count
-                    :start-val="config1.startVal"
-                    :end-val="config1.endVal"
-                    :duration="config1.duration"
-                    :separator="config1.separator"
-                    :prefix="config1.prefix"
-                    :suffix="config1.suffix"
-                    :decimals="config1.decimals"
-                  />
-                  人
-                </el-col>
-              </el-row>
-            </div>
-            <div class="progress-box">
-              <el-progress
-                :percentage="60"
-                color="#08cde9"
-                :show-text="false"
-              ></el-progress>
-            </div>
-          </div>
         </el-col>
+        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
+          <el-card shadow="never">
+            <div slot="header">
+              <svg-icon icon-class="advertising" /> <span>访问量</span>
+            </div>
+            <byui-chart theme="byui-echarts-theme" :options="fwl" />
+            <div class="bottom">
+              <span
+                >日均访问量:
+
+                <byui-count
+                  :start-val="config1.startVal"
+                  :end-val="config1.endVal"
+                  :duration="config1.duration"
+                  :separator="config1.separator"
+                  :prefix="config1.prefix"
+                  :suffix="config1.suffix"
+                  :decimals="config1.decimals"
+                />
+              </span>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
+          <el-card shadow="never">
+            <div slot="header">
+              <svg-icon icon-class="cable_release" /> <span>授权数</span>
+            </div>
+            <byui-chart theme="byui-echarts-theme" :options="sqs" />
+            <div class="bottom">
+              <span
+                >总授权数:
+                <byui-count
+                  :start-val="config2.startVal"
+                  :end-val="config2.endVal"
+                  :duration="config2.duration"
+                  :separator="config2.separator"
+                  :prefix="config2.prefix"
+                  :suffix="config2.suffix"
+                  :decimals="config2.decimals"
+              /></span>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
+          <el-card shadow="never">
+            <div slot="header">
+              <svg-icon icon-class="heat_map" /><span>词云</span>
+            </div>
+            <byui-chart
+              @zr:click="handleZrClick"
+              @click="handleClick"
+              theme="byui-echarts-theme"
+              :options="cy"
+            />
+            <div class="bottom">
+              <span
+                >词云数量:<byui-count
+                  :start-val="config3.startVal"
+                  :end-val="config3.endVal"
+                  :duration="config3.duration"
+                  :separator="config3.separator"
+                  :prefix="config3.prefix"
+                  :suffix="config3.suffix"
+                  :decimals="config3.decimals"
+              /></span>
+            </div>
+          </el-card>
+        </el-col>
+
+        <div
+          style="
+            position: fixed;
+            bottom: 0px;
+            right: 0;
+            width: 400px;
+            display: flex;
+            justify-items: center;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+          "
+        >
+          <el-card shadow="never">
+            <div slot="header">
+              <svg-icon icon-class="heat_map" /><span>付费群</span>
+            </div>
+            <img src="@/assets/ewm.png" />
+          </el-card>
+        </div>
+        <div
+          class="hidden-xs-only"
+          style="
+            width: 400px;
+            position: fixed;
+            bottom: 0px;
+            right: 250px;
+            display: flex;
+            justify-items: center;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+          "
+        >
+          <el-card shadow="never">
+            <div slot="header">
+              <svg-icon icon-class="heat_map" /><span>免费群</span>
+            </div>
+            <img style="width: 140px;" src="@/assets/ewm2.jpg" />
+          </el-card>
+        </div>
       </el-row>
     </div>
-    <el-row :gutter="15">
-      <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
-        <el-card shadow="never">
-          <div slot="header">
-            <svg-icon icon-class="advertising" /> <span>访问量</span>
-          </div>
-          <byui-chart theme="byui-echarts-theme" :options="fwl" />
-          <div class="bottom">
-            <span
-              >日均访问量:
-
-              <byui-count
-                :start-val="config1.startVal"
-                :end-val="config1.endVal"
-                :duration="config1.duration"
-                :separator="config1.separator"
-                :prefix="config1.prefix"
-                :suffix="config1.suffix"
-                :decimals="config1.decimals"
-              />
-            </span>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
-        <el-card shadow="never">
-          <div slot="header">
-            <svg-icon icon-class="cable_release" /> <span>授权数</span>
-          </div>
-          <byui-chart theme="byui-echarts-theme" :options="sqs" />
-          <div class="bottom">
-            <span
-              >总授权数:
-              <byui-count
-                :start-val="config2.startVal"
-                :end-val="config2.endVal"
-                :duration="config2.duration"
-                :separator="config2.separator"
-                :prefix="config2.prefix"
-                :suffix="config2.suffix"
-                :decimals="config2.decimals"
-            /></span>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
-        <el-card shadow="never">
-          <div slot="header">
-            <svg-icon icon-class="heat_map" /><span>词云</span>
-          </div>
-          <byui-chart
-            @zr:click="handleZrClick"
-            @click="handleClick"
-            theme="byui-echarts-theme"
-            :options="cy"
-          />
-          <div class="bottom">
-            <span
-              >词云数量:<byui-count
-                :start-val="config3.startVal"
-                :end-val="config3.endVal"
-                :duration="config3.duration"
-                :separator="config3.separator"
-                :prefix="config3.prefix"
-                :suffix="config3.suffix"
-                :decimals="config3.decimals"
-            /></span>
-          </div>
-        </el-card>
-      </el-col>
-      <div
-        style="
-          position: fixed;
-          bottom: 0px;
-          right: 0;
-          width: 400px;
-          display: flex;
-          justify-items: center;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
-        "
-      >
-        <el-card shadow="never">
-          <div slot="header">
-            <svg-icon icon-class="heat_map" /><span>付费群</span>
-          </div>
-          <img src="@/assets/ewm.png" />
-        </el-card>
-      </div>
-      <div
-        class="hidden-xs-only"
-        style="
-          width: 400px;
-          position: fixed;
-          bottom: 0px;
-          right: 250px;
-          display: flex;
-          justify-items: center;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
-        "
-      >
-        <el-card shadow="never">
-          <div slot="header">
-            <svg-icon icon-class="heat_map" /><span>免费群</span>
-          </div>
-          <img style="width: 140px;" src="@/assets/ewm2.jpg" />
-        </el-card>
-      </div>
-    </el-row>
   </div>
 </template>
 
@@ -557,7 +473,9 @@ export default {
   box-sizing: border-box !important;
   background: #f2f2f2;
   overflow-x: hidden !important;
-
+  .el-col {
+    min-height: 200px;
+  }
   .top-panel {
     width: 100%;
     height: 251px;
@@ -650,9 +568,10 @@ export default {
       rgb(103, 182, 253) 100%
     );
     box-shadow: 0px 0px 9px 0px rgba(98, 83, 190, 0.44);
-    height: 200px;
-    padding: 50px;
+    height: 100px;
+    padding: 20px;
     box-sizing: border-box;
+    height: 180px;
     .txt-box {
       width: 100% !important;
       svg {
