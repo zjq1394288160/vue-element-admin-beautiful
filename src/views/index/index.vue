@@ -139,7 +139,7 @@
             </div>
           </el-card>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6">
+        <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
           <el-card shadow="never">
             <div slot="header">
               <svg-icon icon-class="heat_map" /><span>词云</span>
@@ -165,7 +165,7 @@
           </el-card>
         </el-col>
 
-        <div
+        <!-- <div
           style="
             position: fixed;
             bottom: 0px;
@@ -184,8 +184,8 @@
             </div>
             <img src="@/assets/ewm.png" />
           </el-card>
-        </div>
-        <div
+        </div>-->
+        <!-- <div
           class="hidden-xs-only"
           style="
             width: 400px;
@@ -205,7 +205,7 @@
             </div>
             <img style="width: 140px;" src="@/assets/ewm2.jpg" />
           </el-card>
-        </div>
+        </div>-->
       </el-row>
     </div>
   </div>

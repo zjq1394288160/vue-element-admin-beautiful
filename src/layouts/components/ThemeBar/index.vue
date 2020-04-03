@@ -87,116 +87,117 @@
 </template>
 
 <script>
-  import variables from "@/styles/variables.scss";
-  import { mapGetters } from "vuex";
-  import { themeBar } from "@/settings";
+import variables from "@/styles/variables.scss";
+import { mapGetters } from "vuex";
+import { themeBar } from "@/settings";
 
-  export default {
-    name: "ThemeBar",
-    data() {
-      return {
-        popoverVisible: false,
-        themeBar,
-        drawerVisible: false,
-        theme: {
-          layout: "",
-          header: "",
-          tagsView: "",
-          menuBackground: variables.menuBackground,
-          menuActiveBackground: variables.menuActiveBackground,
-          tagViewsActiveBackground: variables.tagViewsActiveBackground,
-        },
-      };
-    },
-    computed: {
-      ...mapGetters(["layout", "header", "tagsView"]),
-    },
-    mounted() {
-      this.$nextTick(() => {
-        this.popoverVisible = true;
-      });
-    },
-    created() {
-      const theme = localStorage.getItem("BYUI-VUE-THEME");
-      this.theme.layout = this.layout;
-      this.theme.header = this.header;
-      this.theme.tagsView = this.tagsView;
-      if (null !== theme) {
-        this.$set(this.theme, "menuBackground", JSON.parse(theme).menuBackground);
-        this.$set(
-          this.theme,
-          "menuActiveBackground",
-          JSON.parse(theme).menuActiveBackground
-        );
-        this.$set(
-          this.theme,
-          "tagViewsActiveBackground",
-          JSON.parse(theme).tagViewsActiveBackground
-        );
-        this.handleSetTheme();
-      }
-    },
-    methods: {
-      handleChangeTheme() {
-        this.drawerVisible = true;
+export default {
+  name: "ThemeBar",
+  data() {
+    return {
+      popoverVisible: false,
+      themeBar,
+      drawerVisible: false,
+      theme: {
+        layout: "",
+        header: "",
+        tagsView: "",
+        menuBackground: variables.menuBackground,
+        menuActiveBackground: variables.menuActiveBackground,
+        tagViewsActiveBackground: variables.tagViewsActiveBackground,
       },
-      handleSetTheme() {
-        $("#BYUI-VUE-THEME").remove();
-        let layout = this.theme.layout;
-        let header = this.theme.header;
-        let tagsView = this.theme.tagsView;
-        let menuBackground = this.theme.menuBackground;
-        let menuActiveBackground = this.theme.menuActiveBackground;
-        let tagViewsActiveBackground = this.theme.tagViewsActiveBackground;
-        let style = document.createElement("style");
-        style.id = "BYUI-VUE-THEME";
-        style.innerHTML = `
+    };
+  },
+  computed: {
+    ...mapGetters(["layout", "header", "tagsView"]),
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.popoverVisible = true;
+      this.drawerVisible = true;
+    });
+  },
+  created() {
+    const theme = localStorage.getItem("BYUI-VUE-THEME");
+    this.theme.layout = this.layout;
+    this.theme.header = this.header;
+    this.theme.tagsView = this.tagsView;
+    if (null !== theme) {
+      this.$set(this.theme, "menuBackground", JSON.parse(theme).menuBackground);
+      this.$set(
+        this.theme,
+        "menuActiveBackground",
+        JSON.parse(theme).menuActiveBackground
+      );
+      this.$set(
+        this.theme,
+        "tagViewsActiveBackground",
+        JSON.parse(theme).tagViewsActiveBackground
+      );
+      this.handleSetTheme();
+    }
+  },
+  methods: {
+    handleChangeTheme() {
+      this.drawerVisible = true;
+    },
+    handleSetTheme() {
+      $("#BYUI-VUE-THEME").remove();
+      let layout = this.theme.layout;
+      let header = this.theme.header;
+      let tagsView = this.theme.tagsView;
+      let menuBackground = this.theme.menuBackground;
+      let menuActiveBackground = this.theme.menuActiveBackground;
+      let tagViewsActiveBackground = this.theme.tagViewsActiveBackground;
+      let style = document.createElement("style");
+      style.id = "BYUI-VUE-THEME";
+      style.innerHTML = `
       .top-bar-container, .top-bar-container .byui-main, .side-bar-container, .logo-container-vertical, .logo-container-horizontal, .el-menu, .el-menu-item, .el-submenu.is-active.is-opened, .el-submenu__title, .el-menu-item.is-active, .el-menu-item .is-active { background-color:${menuBackground}!important; }
       body .el-menu--horizontal .top-bar-item-container  .el-menu-item:hover, body .el-menu--horizontal .top-bar-item-container .el-menu-item.is-active, body .app-wrapper .side-bar-container .el-submenu .el-menu-item.is-active, body .app-wrapper .side-bar-container  .el-menu-item:hover,body .side-bar-container .el-menu .el-menu-item.is-active{ background-color:${menuActiveBackground}!important; }
       .tags-view-item.router-link-exact-active.router-link-active.active{ background-color: ${tagViewsActiveBackground}; border: 1px solid ${tagViewsActiveBackground}; } `;
-        document.getElementsByTagName("head").item(0).appendChild(style);
-        localStorage.setItem(
-          "BYUI-VUE-THEME",
-          `{"menuBackground":"${menuBackground}","menuActiveBackground":"${menuActiveBackground}","tagViewsActiveBackground":"${tagViewsActiveBackground}"}`
-        );
-        this.handleSwitchLayout(layout);
-        this.handleSwitchHeader(header);
-        this.handleSwitchTagsView(tagsView);
-        this.drawerVisible = false;
-      },
-      handleSaveTheme() {
-        this.handleSetTheme();
-        location.reload();
-      },
-      handleSetDfaultTheme() {
-        $("#BYUI-VUE-THEME").remove();
-        localStorage.removeItem("BYUI-VUE-THEME");
-        localStorage.removeItem("BYUI-VUE-LAYOUT");
-        localStorage.removeItem("BYUI-VUE-TAGS-VIEW");
-        this.$store.dispatch("settings/changeLayout", this.theme.layout);
-        this.$refs["form"].resetFields();
-        Object.assign(this.$data, this.$options.data());
-        this.drawerVisible = false;
-        location.reload();
-      },
-      handleSwitchLayout(layout) {
-        localStorage.setItem("BYUI-VUE-LAYOUT", layout);
-        this.$store.dispatch("settings/changeLayout", layout);
-      },
-      handleSwitchHeader(header) {
-        localStorage.setItem("BYUI-VUE-HEADER", header);
-        this.$store.dispatch("settings/changeHeader", header);
-      },
-      handleSwitchTagsView(tagsView) {
-        localStorage.setItem("BYUI-VUE-TAGS-VIEW", tagsView);
-        this.$store.dispatch("settings/changeTagsView", tagsView);
-      },
+      document.getElementsByTagName("head").item(0).appendChild(style);
+      localStorage.setItem(
+        "BYUI-VUE-THEME",
+        `{"menuBackground":"${menuBackground}","menuActiveBackground":"${menuActiveBackground}","tagViewsActiveBackground":"${tagViewsActiveBackground}"}`
+      );
+      this.handleSwitchLayout(layout);
+      this.handleSwitchHeader(header);
+      this.handleSwitchTagsView(tagsView);
+      this.drawerVisible = false;
     },
-  };
+    handleSaveTheme() {
+      this.handleSetTheme();
+      location.reload();
+    },
+    handleSetDfaultTheme() {
+      $("#BYUI-VUE-THEME").remove();
+      localStorage.removeItem("BYUI-VUE-THEME");
+      localStorage.removeItem("BYUI-VUE-LAYOUT");
+      localStorage.removeItem("BYUI-VUE-TAGS-VIEW");
+      this.$store.dispatch("settings/changeLayout", this.theme.layout);
+      this.$refs["form"].resetFields();
+      Object.assign(this.$data, this.$options.data());
+      this.drawerVisible = false;
+      location.reload();
+    },
+    handleSwitchLayout(layout) {
+      localStorage.setItem("BYUI-VUE-LAYOUT", layout);
+      this.$store.dispatch("settings/changeLayout", layout);
+    },
+    handleSwitchHeader(header) {
+      localStorage.setItem("BYUI-VUE-HEADER", header);
+      this.$store.dispatch("settings/changeHeader", header);
+    },
+    handleSwitchTagsView(tagsView) {
+      localStorage.setItem("BYUI-VUE-TAGS-VIEW", tagsView);
+      this.$store.dispatch("settings/changeTagsView", tagsView);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .el-drawer__body {
-    padding: 20px;
-  }
+.el-drawer__body {
+  padding: 20px;
+}
 </style>

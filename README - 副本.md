@@ -15,7 +15,7 @@
 
 ## [演示地址,点我!!!!!vue-element-admin-beautiful](http://chu1204505056.gitee.io/byui/#/login?redirect=%2F)
 
-## 官方问题解答讨论群 97243531
+## 官方问题解答讨论群 972435319
 
 ## 鸣谢 花裤衩的开源项目给了我很多灵感
 
