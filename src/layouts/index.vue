@@ -242,7 +242,7 @@ export default {
 
       .layout-container-vertical {
         .byui-main {
-          margin-left: 0 !important;
+          margin-left: $base-left-menu-width-min !important;
         }
       }
 
