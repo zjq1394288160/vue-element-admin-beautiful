@@ -100,7 +100,7 @@
             <div slot="header">
               <svg-icon icon-class="advertising" /> <span>访问量</span>
             </div>
-            <byui-chart theme="byui-echarts-theme" :options="fwl" />
+            <byui-chart autoresize theme="byui-echarts-theme" :options="fwl" />
             <div class="bottom">
               <span
                 >日均访问量:
@@ -123,7 +123,7 @@
             <div slot="header">
               <svg-icon icon-class="cable_release" /> <span>授权数</span>
             </div>
-            <byui-chart theme="byui-echarts-theme" :options="sqs" />
+            <byui-chart autoresize theme="byui-echarts-theme" :options="sqs" />
             <div class="bottom">
               <span
                 >总授权数:
@@ -145,6 +145,7 @@
               <svg-icon icon-class="heat_map" /><span>词云</span>
             </div>
             <byui-chart
+              autoresize
               @zr:click="handleZrClick"
               @click="handleClick"
               theme="byui-echarts-theme"
