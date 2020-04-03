@@ -1,7 +1,8 @@
 <template>
   <div :class="'logo-container-' + layout">
     <router-link to="/">
-      <svg-icon class="logo" icon-class="icon" />
+      <!--<svg-icon class="logo" icon-class="icon" />-->
+      <svg-icon class="logo" icon-class="alarm_clock" />
       <span class="title" :title="title">
         {{ title }}
       </span>
