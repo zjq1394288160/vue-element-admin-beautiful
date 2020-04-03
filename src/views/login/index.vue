@@ -175,15 +175,9 @@ export default {
 
 <style lang="scss" scoped>
 .login-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
   background: url("~@/assets/login_images/background2.png") no-repeat;
   background-size: cover;
-
+  height: 100vh;
   .title {
     height: 50px;
     font-size: 54px;
@@ -234,7 +228,7 @@ export default {
     max-width: 100%;
     background-size: 100% 100%;
     overflow: hidden;
-    margin: 30vh 120px 120px;
+    margin: 22vh 10% 10%;
 
     .forget-password {
       width: 100%;
@@ -296,11 +290,6 @@ export default {
     color: $base-font-color;
     cursor: pointer;
     user-select: none;
-  }
-
-  .login-left {
-    width: 388px;
-    margin-top: 20px;
   }
 
   ::v-deep {
