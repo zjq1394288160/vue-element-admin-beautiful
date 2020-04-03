@@ -14,7 +14,7 @@
 
       <el-form-item>
         <el-button @click="handleChangePermission" type="primary"
-        >切换权限
+          >切换权限
         </el-button>
       </el-form-item>
       <el-form-item label="当前账号拥有的权限">
@@ -30,86 +30,100 @@
       由于演示环境是mock数据模拟,可能无法展现此功能的配置,只做如下展示,便于您的理解
     </p>
     <br />
-    <el-table
-      :data="tableData"
-      row-key="path"
-      border
-      default-expand-all
-      :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
-    >
-      <el-table-column prop="name" label="name"></el-table-column>
-      <el-table-column prop="path" label="path"></el-table-column>
-      <el-table-column prop="component" label="component"></el-table-column>
-      <el-table-column prop="redirect" label="redirect"></el-table-column>
-      <el-table-column prop="meta.title" label="标题"></el-table-column>
-      <el-table-column label="图标">
-        <template slot-scope="scope">
-          <span v-if="scope.row.meta">
-            <byui-icon :icon="['fas', scope.row.meta.icon]"></byui-icon>
-          </span>
-        </template>
-      </el-table-column>
-      <el-table-column label="是否固定">
-        <template slot-scope="scope">
-          <span v-if="scope.row.meta">
-            {{ scope.row.meta.affix }}
-          </span>
-        </template>
-      </el-table-column>
-      <el-table-column label="是否无缓存">
-        <template slot-scope="scope">
-          <span v-if="scope.row.meta">
-            {{ scope.row.meta.noCache }}
-          </span>
-        </template>
-      </el-table-column>
-    </el-table>
+    <el-row :gutter="15">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+        <el-table
+          :data="tableData"
+          row-key="path"
+          border
+          default-expand-all
+          :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
+        >
+          <el-table-column prop="name" label="name"></el-table-column>
+          <el-table-column prop="path" label="path"></el-table-column>
+          <el-table-column prop="component" label="component"></el-table-column>
+          <el-table-column prop="redirect" label="redirect"></el-table-column>
+          <el-table-column prop="meta.title" label="标题"></el-table-column>
+          <el-table-column label="图标">
+            <template slot-scope="scope">
+              <span v-if="scope.row.meta">
+                <byui-icon
+                  v-if="scope.row.meta.icon"
+                  :icon="['fas', scope.row.meta.icon]"
+                ></byui-icon>
+              </span>
+            </template>
+          </el-table-column>
+          <el-table-column label="是否固定">
+            <template slot-scope="scope">
+              <span v-if="scope.row.meta">
+                {{ scope.row.meta.affix }}
+              </span>
+            </template>
+          </el-table-column>
+          <el-table-column label="是否无缓存">
+            <template slot-scope="scope">
+              <span v-if="scope.row.meta">
+                {{ scope.row.meta.noCache }}
+              </span>
+            </template>
+          </el-table-column>
+        </el-table></el-col
+      >
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+        <json-editor :value="res"></json-editor>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from "vuex";
-  import { tokenTableName } from "@/settings";
-  import { getRouterList } from "@/api/router";
-
-  export default {
-    name: "Permission",
-    components: {},
-    data() {
-      return {
-        form: {
-          permission: "",
-        },
-        tableData: [],
-      };
-    },
-    computed: {
-      ...mapGetters(["roles"]),
-    },
-    created() {
-      this.fetchData();
-    },
-    mounted() {
-      this.form.permission = this.roles[0];
-    },
-    methods: {
-      handleChangePermission() {
-        localStorage.setItem(
-          tokenTableName,
-          `byui-${this.form.permission}-accessToken`
-        );
-        location.reload();
+import { mapGetters } from "vuex";
+import { tokenTableName } from "@/settings";
+import { getRouterList } from "@/api/router";
+import JsonEditor from "@/components/JsonEditor";
+export default {
+  name: "Permission",
+  components: {
+    JsonEditor,
+  },
+  data() {
+    return {
+      form: {
+        permission: "",
       },
-      fetchData() {
-        getRouterList().then((res) => {
-          this.tableData = res.data;
-        });
-      },
+      tableData: [],
+      res: [],
+    };
+  },
+  computed: {
+    ...mapGetters(["roles"]),
+  },
+  created() {
+    this.fetchData();
+  },
+  mounted() {
+    this.form.permission = this.roles[0];
+  },
+  methods: {
+    handleChangePermission() {
+      localStorage.setItem(
+        tokenTableName,
+        `byui-${this.form.permission}-accessToken`
+      );
+      location.reload();
     },
-  };
+    fetchData() {
+      getRouterList().then((res) => {
+        this.tableData = res.data;
+        this.res = res;
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .permission-container {
-  }
+.permission-container {
+}
 </style>
