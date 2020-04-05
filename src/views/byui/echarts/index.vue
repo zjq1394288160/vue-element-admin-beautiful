@@ -5,7 +5,7 @@
         <el-card shadow="hover">
           <div slot="header">柱状图</div>
           <div>
-            <byui-chart :options="chart1" />
+            <byui-chart autoresize :options="chart1" />
           </div>
         </el-card>
       </el-col>
@@ -15,7 +15,12 @@
             柱状图-竖形(适合横坐标文字过长的情况)
           </div>
           <div>
-            <byui-chart ref="myLine" :options="chart3" class="my-line" />
+            <byui-chart
+              autoresize
+              ref="myLine"
+              :options="chart3"
+              class="my-line"
+            />
           </div>
         </el-card>
       </el-col>
@@ -32,7 +37,12 @@
         <el-card shadow="hover">
           <div slot="header">折线图</div>
           <div>
-            <byui-chart ref="myLine1" :options="chart5" class="my-line1" />
+            <byui-chart
+              autoresize
+              ref="myLine1"
+              :options="chart5"
+              class="my-line1"
+            />
           </div>
         </el-card>
       </el-col>

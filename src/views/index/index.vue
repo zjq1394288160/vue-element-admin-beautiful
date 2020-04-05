@@ -166,7 +166,7 @@
           </el-card>
         </el-col>
 
-        <!-- <div
+        <div
           style="
             position: fixed;
             bottom: 0px;
@@ -181,11 +181,13 @@
         >
           <el-card shadow="never">
             <div slot="header">
-              <svg-icon icon-class="heat_map" /><span>付费群</span>
+              <svg-icon icon-class="heat_map" /><span
+                >交流学习群(愿者上钩)</span
+              >
             </div>
             <img src="@/assets/ewm.png" />
           </el-card>
-        </div>-->
+        </div>
         <!-- <div
           class="hidden-xs-only"
           style="
@@ -226,7 +228,7 @@ export default {
     return {
       config1: {
         startVal: 0,
-        endVal: 999,
+        endVal: 99,
         decimals: 0,
         prefix: "",
         suffix: "",
