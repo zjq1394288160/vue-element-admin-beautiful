@@ -62,7 +62,7 @@ export const asyncRoutes = [
         path: "/test",
         name: "Test",
         component: () => import("@/views/test/index"),
-        meta: { title: "test", icon: "marker" },
+        meta: { title: "Webstorm最新版激活", icon: "marker" },
       },
     ],
   },
