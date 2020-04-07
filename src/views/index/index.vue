@@ -13,6 +13,20 @@
 
     <div class="top-panel">
       <el-row :gutter="15">
+        <el-col :span="24">
+          <el-card>
+            <div slot="header">
+              <span>github开源地址</span>
+            </div>
+            <div>
+              <a
+                target="_blank"
+                href="https://github.com/chuzhixin/vue-element-admin-beautiful"
+                >https://github.com/chuzhixin/vue-element-admin-beautiful</a
+              >
+            </div>
+          </el-card>
+        </el-col>
         <el-col :xs="24" :sm="24" :md="12" :lg="6" :xl="6" class="top-panel1">
           <div class="card1">
             <div class="top-panel-content byui-clearfix">
