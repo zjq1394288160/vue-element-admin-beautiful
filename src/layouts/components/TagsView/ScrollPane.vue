@@ -88,9 +88,10 @@ export default {
     .el-scrollbar__bar {
       bottom: 0;
     }
-
+    ::-webkit-scrollbar {
+      display: none;
+    }
     .el-scrollbar__wrap {
-      overflow: hidden;
       height: 44px;
       margin-bottom: 0 !important;
     }

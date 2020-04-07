@@ -1,29 +1,43 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
-    <scroll-pane ref="scrollPane" @contextmenu.stop>
-      <router-link
-        v-for="(item, index) in visitedViews"
-        :key="index"
-        ref="tag"
-        :class="isActive(item) ? 'active' : ''"
-        :to="{
-          path: item.path,
-          query: item.query,
-          fullPath: item.fullPath,
-        }"
-        class="tags-view-item"
-        tag="span"
-        @click.middle.native="!isAffix(tag) ? closeSelectedTag(tag) : ''"
-        @contextmenu.prevent.native="openMenu(item, $event, selectedTag)"
-      >
-        {{ item.title }}
-        <span
-          v-if="!isAffix(item)"
-          class="el-icon-close"
-          @click.prevent.stop="closeSelectedTag(item)"
-        />
-      </router-link>
+    <byui-icon
+      @click="handleScroll('left')"
+      class="tags-icon"
+      :icon="['fas', 'angle-double-left']"
+    >
+    </byui-icon>
+    <scroll-pane class="tags-content" ref="scrollPane" @contextmenu.stop>
+      <span>
+        <router-link
+          v-for="(item, index) in visitedViews"
+          :key="index"
+          ref="tag"
+          :class="isActive(item) ? 'active' : ''"
+          :to="{
+            path: item.path,
+            query: item.query,
+            fullPath: item.fullPath,
+          }"
+          class="tags-view-item"
+          tag="span"
+          @click.middle.native="!isAffix(tag) ? closeSelectedTag(tag) : ''"
+          @contextmenu.prevent.native="openMenu(item, $event, selectedTag)"
+        >
+          {{ item.title }}
+          <span
+            v-if="!isAffix(item)"
+            class="el-icon-close"
+            @click.prevent.stop="closeSelectedTag(item)"
+          />
+        </router-link>
+      </span>
     </scroll-pane>
+    <byui-icon
+      @click="handleScroll('right')"
+      class="tags-icon"
+      :icon="['fas', 'angle-double-right']"
+    >
+    </byui-icon>
     <ul
       v-show="visible"
       :style="{ left: left + 'px', top: top + 'px' }"
@@ -224,6 +238,16 @@ export default {
     closeMenu() {
       this.visible = false;
     },
+
+    handleScroll(e) {
+      let $wrap = $(".tags-view-container .el-scrollbar__wrap");
+      if ("left" === e) {
+        $wrap.animate({ scrollLeft: 0 }, 400);
+      } else {
+        console.log($wrap[0].scrollWidth);
+        $wrap.animate({ scrollLeft: $wrap[0].scrollWidth }, 400);
+      }
+    },
   },
 };
 </script>
@@ -231,53 +255,68 @@ export default {
 <style lang="scss" scoped>
 .tags-view-container {
   height: 44px;
-  width: 100%;
   position: relative;
   background: $base-color-white;
   box-sizing: border-box;
-
-  .tags-view-item {
-    position: relative;
+  .tags-icon {
+    float: left;
+    width: 30px;
+    vertical-align: auto;
+    margin-top: 16px;
+    font-size: $base-font-size-default;
+    color: $base-color-gray;
     cursor: pointer;
-    height: $base-input-height;
-    line-height: $base-input-height;
-    border: 1px solid $base-border-color;
-    background: $base-color-white;
-    font-size: $base-font-size-small;
-    border-radius: $base-border-radius;
-    margin-left: 5px;
-    margin-top: 6px;
-    display: inline-flex;
-    justify-items: center;
-    align-items: center;
-    padding: 0 15px 0 15px;
-
-    &.active {
-      background-color: $base-color-blue;
-      border: 1px solid $base-color-blue;
-      color: $base-color-white;
+    text-align: center;
+    &:hover {
+      opacity: 0.8;
     }
-
-    .el-icon-close {
-      margin: 0 0 0 3px;
-      width: 15px;
-      height: 15px;
-      box-sizing: border-box;
+  }
+  .tags-content {
+    float: left;
+    width: calc(100% - 60px);
+    .tags-view-item {
+      position: relative;
+      cursor: pointer;
+      height: $base-input-height;
+      line-height: $base-input-height;
+      border: 1px solid $base-border-color;
+      background: $base-color-white;
+      font-size: $base-font-size-small;
+      border-radius: $base-border-radius;
+      margin-right: 5px;
+      margin-top: 6px;
       display: inline-flex;
       justify-items: center;
       align-items: center;
-      position: relative;
+      padding: 0 15px 0 25px;
 
-      &::before {
-        position: absolute;
-        top: 2px;
-        left: 1.5px;
+      &.active {
+        background-color: $base-color-blue;
+        border: 1px solid $base-color-blue;
+        color: $base-color-white;
       }
 
-      &:hover {
-        border-radius: 50%;
-        background-color: $base-color-red;
-        color: $base-color-white;
+      .el-icon-close {
+        margin: 0 0 0 3px;
+        width: 15px;
+        height: 15px;
+        box-sizing: border-box;
+        display: inline-flex;
+        justify-items: center;
+        align-items: center;
+        position: relative;
+
+        &::before {
+          position: absolute;
+          top: 2px;
+          left: 1.5px;
+        }
+
+        &:hover {
+          border-radius: 50%;
+          background-color: $base-color-red;
+          color: $base-color-white;
+        }
       }
     }
   }
@@ -285,7 +324,7 @@ export default {
   .contextmenu {
     margin: 0;
     background: #fff;
-    z-index: 99;
+    z-index: 999;
     position: absolute;
     list-style-type: none;
     padding: 5px 0;
